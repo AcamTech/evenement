@@ -31,6 +31,13 @@
                     <div class="form-group">
                         <button type="submit" class="btn btn-block btn-success">@lang("User.login")</button>
                     </div>
+                    <div class="form-group">
+                        <a
+                            href="{{route('gccollab_login')}}"
+                            class="btn btn-block btn-success"
+                            style="color: #fff; font-weight: normal;"
+                        >GCCollab Login</a>
+                    </div>
 
                     @if(Utils::isAttendize())
                     <div class="signup">
