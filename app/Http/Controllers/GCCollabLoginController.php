@@ -113,6 +113,8 @@ class GCCollabLoginController extends Controller
                 'is_registered' => 1
             ]);
             $foundUser->save();
+
+            session()->flash('message', 'Success! You can now login.');
         }
         Auth::login($foundUser, true);
 
