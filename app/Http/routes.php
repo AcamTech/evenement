@@ -63,6 +63,14 @@ Route::group(
         Route::post('/login', 'UserLoginController@postLogin');
 
         /*
+         * GCCollab Login
+         */
+        Route::get('/login/gccollab/callback', [
+            'as' => 'gccollab_login',
+            'uses' => 'GCCollabLoginController@showLogin'
+        ]);
+
+        /*
          * Forgot password
          */
         Route::get('login/forgot-password', [

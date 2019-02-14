@@ -40,5 +40,13 @@ return [
 
     'sparkpost' => [
         'secret' => env('SPARKPOST_SECRET')
+    ],
+
+    'gccollab' => [
+        'client_id' => env('GCCOLLAB_ID'),
+        'client_secret' => env('GCCOLLAB_SECRET'),
+        'callback' => env('GCCOLLAB_CALLBACK_URL'),
+        'default_password' => env('GCCOLLAB_DEFAULT_PASSWORD')
     ]
+
 ];
