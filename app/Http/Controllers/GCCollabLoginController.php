@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use InoOicClient\Flow\Basic;
 use InoOicClient\Flow\Exception\TokenRequestException;
 use Redirect;
@@ -86,10 +88,29 @@ class GCCollabLoginController extends Controller
 
         $foundUser = User::query()->where('email', $gcCollabEmail)->first();
         if (is_null($foundUser)) {
-            $foundUser = User::create([
-                'name' => $gcCollabName,
+            $firstName = $gcCollabName;
+            $lastName = '';
+            if (strpos(' ', $gcCollabName) > -1) {
+                list($firstName, $lastName) = explode(' ', $gcCollabName, 2);
+            }
+
+            $account = Account::create([
                 'email' => $gcCollabEmail,
-                'password' => $this->defaultPassword
+                'first_name' => $firstName,
+                'last_name' => $lastName,
+                'currency_id' => config('attendize.default_currency'),
+                'timezone_id' => config('attendize.default_timezone')
+            ]);
+            $account->save();
+
+            $foundUser = User::create([
+                'email' => $gcCollabEmail,
+                'first_name' => $firstName,
+                'last_name' => $lastName,
+                'password' => Hash::make($this->defaultPassword),
+                'account_id' => $account->id,
+                'is_parent' => 1,
+                'is_registered' => 1
             ]);
             $foundUser->save();
         }
