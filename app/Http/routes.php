@@ -166,6 +166,11 @@ Route::group(
             'uses' => 'EventViewController@showEventHomePreview',
         ]);
 
+        Route::post('{event_id}/sign-up/', [
+            'as'   => 'postSignup',
+            'uses' => 'EventAttendeesController@postSignup',
+        ]);
+
         Route::post('{event_id}/checkout/', [
             'as'   => 'postValidateTickets',
             'uses' => 'EventCheckoutController@postValidateTickets',

@@ -28,6 +28,16 @@ use Validator;
 class EventAttendeesController extends MyBaseController
 {
     /**
+     * @param Request $request
+     * @param $event_id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function postSignup(Request $request, $event_id)
+    {
+        return response()->json(['message' => 'Hello, world!']);
+    }
+
+    /**
      * Show the attendees list
      *
      * @param Request $request
