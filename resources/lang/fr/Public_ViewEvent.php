@@ -80,4 +80,5 @@ return array (
   'your_message' => 'Votre message',
   'your_name' => 'Votre nom',
   'your' => 'Vos',
+  'attend' => 'Attend FR'
 );
