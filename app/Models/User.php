@@ -168,4 +168,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         $this->notify(new UserResetPassword($token));
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role', 'user_roles');
+    }
 }
