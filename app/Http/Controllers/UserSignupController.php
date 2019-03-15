@@ -27,6 +27,10 @@ class UserSignupController extends Controller
 
     public function showSignup()
     {
+        if (Account::count() > 0) {
+            return redirect('/');
+        }
+
         $is_attendize = Utils::isAttendize();
         return view('Public.LoginAndRegister.Signup', compact('is_attendize'));
     }
