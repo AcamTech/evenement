@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Attendize\Utils;
 use App\Models\Account;
+use App\Models\Role;
 use App\Models\User;
 use Hash;
 use Illuminate\Contracts\Auth\Guard;
@@ -47,6 +48,12 @@ class UserSignupController extends Controller
             'terms_agreed' => $is_attendize ? 'required' : '',
         ]);
 
+        // gathering attendee role
+        $adminRole = Role::query()->where('name', 'Administrator')->first();
+        if (is_null($adminRole)) {
+            return response('', 500)->json(['error' => 'Administrator role does not exist']);
+        }
+
         $account_data = $request->only(['email', 'first_name', 'last_name']);
         $account_data['currency_id'] = config('attendize.default_currency');
         $account_data['timezone_id'] = config('attendize.default_timezone');
@@ -59,6 +66,8 @@ class UserSignupController extends Controller
         $user_data['is_parent'] = 1;
         $user_data['is_registered'] = 1;
         $user = User::create($user_data);
+
+        $user->roles()->attach($adminRole->id);
 
         if ($is_attendize) {
             // TODO: Do this async?
