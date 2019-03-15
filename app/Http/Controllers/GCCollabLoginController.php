@@ -80,6 +80,12 @@ class GCCollabLoginController extends Controller
             return response('', 500)->json(['error' => $e->getMessage()]);
         }
 
+        // gathering global account
+        $globalAccount = Account::query()->where('id', 1)->first();
+        if (is_null($globalAccount)) {
+            return response('', 500)->json(['error' => 'Global account does not exist']);
+        }
+
         // checking to see whether the user exists and creating where necessary
         $gcCollabUserId = $userInfo['sub'];
         $gcCollabEmail = $userInfo['email'];
@@ -94,22 +100,13 @@ class GCCollabLoginController extends Controller
                 list($firstName, $lastName) = explode(' ', $gcCollabName, 2);
             }
 
-            $account = Account::create([
-                'email' => $gcCollabEmail,
-                'first_name' => $firstName,
-                'last_name' => $lastName,
-                'currency_id' => config('attendize.default_currency'),
-                'timezone_id' => config('attendize.default_timezone')
-            ]);
-            $account->save();
-
             $foundUser = User::create([
                 'email' => $gcCollabEmail,
                 'first_name' => $firstName,
                 'last_name' => $lastName,
                 'password' => Hash::make($this->defaultPassword),
-                'account_id' => $account->id,
-                'is_parent' => 1,
+                'account_id' => $globalAccount->id,
+                'is_parent' => 0,
                 'is_registered' => 1
             ]);
             $foundUser->save();
