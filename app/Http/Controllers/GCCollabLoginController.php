@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -86,6 +87,12 @@ class GCCollabLoginController extends Controller
             return response('', 500)->json(['error' => 'Global account does not exist']);
         }
 
+        // gathering attendee role
+        $attendeeRole = Role::query()->where('name', 'attendee')->first();
+        if (is_null($attendeeRole)) {
+            return response('', 500)->json(['error' => 'Attendee role does not exist']);
+        }
+
         // checking to see whether the user exists and creating where necessary
         $gcCollabUserId = $userInfo['sub'];
         $gcCollabEmail = $userInfo['email'];
@@ -110,6 +117,8 @@ class GCCollabLoginController extends Controller
                 'is_registered' => 1
             ]);
             $foundUser->save();
+
+            $foundUser->roles()->attach($attendeeRole->id);
 
             session()->flash('message', 'Success! You can now login.');
         }

@@ -8,6 +8,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 
@@ -169,8 +170,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         $this->notify(new UserResetPassword($token));
     }
 
+    /**
+     * @return BelongsToMany
+     */
     public function roles()
     {
-        return $this->belongsToMany('App\Role', 'user_roles');
+        return $this->belongsToMany('App\Models\Role', 'user_roles')
+            ->using('App\Models\UserRole');
     }
 }
