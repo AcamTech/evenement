@@ -6,6 +6,7 @@ use App\Models\User;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class IsAdmin
 {
@@ -53,15 +54,22 @@ class IsAdmin
         }
 
         $isAdmin = false;
+        $isAttendee = false;
         foreach ($foundUser->roles as $role) {
             if ($role->name === 'administrator') {
                 $isAdmin = true;
-
-                break;
+            }
+            if ($role->name === 'attendee') {
+                $isAttendee = true;
             }
         }
-        if (!$isAdmin) {
+
+        if (!($isAdmin || $isAttendee)) {
             return response('Unauthorized.', 401);
+        }
+
+        if ($isAttendee) {
+            return Redirect::route('showUserHome');
         }
 
         return $next($request);
