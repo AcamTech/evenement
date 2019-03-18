@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Auth;
 use Hash;
 use Illuminate\Http\Request;
@@ -15,6 +16,9 @@ class UserController extends Controller
      */
     public function showUserHome()
     {
+        /**
+         * @var $user User
+         */
         $user = Auth::user();
 
         if (empty($user->roles)) {
