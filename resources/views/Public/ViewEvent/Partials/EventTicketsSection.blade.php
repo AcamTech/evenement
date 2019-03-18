@@ -1,7 +1,7 @@
 <section id="tickets" class="container">
     <div class="row">
         <h1 class='section_head'>
-            @lang("Public_ViewEvent.tickets")
+            @lang("Public_ViewEvent.registration")
         </h1>
     </div>
 
