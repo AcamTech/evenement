@@ -2,12 +2,12 @@
 
 @section('title')
     @parent
-    Home
+    @lang('basic.home')
 @endsection
 
 @section('page_title')
     <i class="ico-home2"></i>
-    Dashboard
+    @lang('basic.dashboard')
 @stop
 
 @section('menu_title')
@@ -19,7 +19,7 @@
         <li>
             <a href="{{route('showUserHome')}}">
                 <i class="ico ico-home"></i>
-                Home
+                @lang('basic.home')
             </a>
         </li>
         <li class="divider"></li>
@@ -31,7 +31,7 @@
         <li>
             <a href="#">
                 <i class="ico ico-calendar"></i>
-                My Events
+                @lang('basic.my_events')
             </a>
         </li>
         <li class="divider"></li>
