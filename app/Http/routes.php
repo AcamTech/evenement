@@ -128,7 +128,7 @@ Route::group(
     /*
      * Attendee event page routes
      */
-    Route::group(['prefix' => 'e', 'middleware' => ['is_attendee']], function () {
+    Route::group(['prefix' => 'e'], function () {
 
         /*
          * Embedded events
