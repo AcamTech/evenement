@@ -20,6 +20,7 @@ use Carbon\Carbon;
 use Cookie;
 use DB;
 use Illuminate\Http\Request;
+use Auth;
 use Log;
 use Omnipay;
 use PDF;
@@ -262,11 +263,14 @@ class EventCheckoutController extends Controller
         $orderService = new OrderService($order_session['order_total'], $order_session['total_booking_fee'], $event);
         $orderService->calculateFinalCosts();
 
+        $user = Auth::user();
+
         $data = $order_session + [
                 'event'           => $event,
                 'secondsToExpire' => $secondsToExpire,
                 'is_embedded'     => $this->is_embedded,
-                'orderService'    => $orderService
+                'orderService'    => $orderService,
+                'user' => $user
                 ];
 
         if ($this->is_embedded) {
