@@ -6,7 +6,8 @@
 @endsection
 
 @section('page_title')
-    {{Auth::user()->first_name}} {{Auth::user()->last_name}} Dashboard
+    <i class="ico-home2"></i>
+    Dashboard
 @stop
 
 @section('menu_title')
