@@ -36,15 +36,15 @@ class UserController extends Controller
             }
         }
 
+        if (!($isAdmin || $isAttendee)) {
+            return response('User is not administrator or attendee.', 401);
+        }
+
         if ($isAdmin) {
             return Redirect::route('showSelectOrganiser');
         }
 
-        if ($isAttendee) {
-            return response('Hello, world!');
-        }
-
-        return response('User is not administrator or attendee.', 401);
+        return view('Attendee.Dashboard');
     }
 
     /**
