@@ -16,19 +16,19 @@
         @show
     </title>
 
-    @include('Shared.Layouts.ViewJavascript')
+@include('Shared.Layouts.ViewJavascript')
 
-    <!--Meta-->
-    @include('Shared.Partials.GlobalMeta')
-   <!--/Meta-->
+<!--Meta-->
+@include('Shared.Partials.GlobalMeta')
+<!--/Meta-->
 
     <!--JS-->
-    {!! HTML::script(config('attendize.cdn_url_static_assets').'/vendor/jquery/dist/jquery.min.js') !!}
-    <!--/JS-->
+{!! HTML::script(config('attendize.cdn_url_static_assets').'/vendor/jquery/dist/jquery.min.js') !!}
+<!--/JS-->
 
     <!--Style-->
-    {!! HTML::style(config('attendize.cdn_url_static_assets').'/assets/stylesheet/application.css') !!}
-    <!--/Style-->
+{!! HTML::style(config('attendize.cdn_url_static_assets').'/assets/stylesheet/application.css') !!}
+<!--/Style-->
 
     @yield('head')
 </head>
@@ -50,7 +50,7 @@
 
                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                     <span class="meta">
-                        <span class="text">
+                        <span class="text ">
                             @yield('menu_title')
                         </span>
                         <span class="arrow"></span>
@@ -58,6 +58,7 @@
                 </a>
 
                 @yield('menu_body')
+            </li>
         </ul>
     </div>
 </header>
@@ -70,19 +71,19 @@
         <div class="page-title">
             <h1 class="title">@yield('page_title')</h1>
         </div>
-        @if(array_key_exists('page_header', View::getSections()))
+    @if(array_key_exists('page_header', View::getSections()))
         <!--  header -->
-        <div class="page-header page-header-block row">
-            <div class="row">
-                @yield('page_header')
+            <div class="page-header page-header-block row">
+                <div class="row">
+                    @yield('page_header')
+                </div>
             </div>
-        </div>
-        <!--/  header -->
-        @endif
+            <!--/  header -->
+    @endif
 
-        <!--Content-->
-        @yield('content')
-        <!--/Content-->
+    <!--Content-->
+    @yield('content')
+    <!--/Content-->
     </div>
 
     <!--To The Top-->
@@ -96,18 +97,18 @@
 @include("Shared.Partials.LangScript")
 {!! HTML::script('assets/javascript/backend.js') !!}
 <script>
-    $(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-            }
-        });
+  $(function () {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+      }
     });
+  });
 
-    @if(!Auth::user()->first_name || !Auth::user()->has_seen_first_modal)
-      setTimeout(function () {
-        $('.editUserModal').click();
-    }, 1000);
+  @if(!Auth::user()->first_name || !Auth::user()->has_seen_first_modal)
+  setTimeout(function () {
+    $('.editUserModal').click();
+  }, 1000);
     @endif
 
 </script>
