@@ -60,5 +60,6 @@ class Kernel extends HttpKernel
         'localeSessionRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
         'localeViewPath' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
         'is_attendee' => \App\Http\Middleware\IsAttendee::class,
+        'is_admin' => \App\Http\Middleware\IsAdmin::class,
     ];
 }

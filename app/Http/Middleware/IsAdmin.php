@@ -7,7 +7,7 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Auth;
 
-class IsAttendee
+class IsAdmin
 {
     /**
      * The Guard implementation.
@@ -42,14 +42,14 @@ class IsAttendee
             return redirect()->guest('login');
         }
 
-        $id = $this->auth->user();
+        $id = $this->auth->id();
         if (is_null($id)) {
             return response('Authorized but has no id.', 500);
         }
 
         $foundUser = User::query()->where('id', $id)->first();
         if (is_null($foundUser)) {
-            return response('Authorized and has id but could not find user.', 500);
+            return response('Authorized and has id but could not find user', 500);
         }
 
         $isAdmin = false;

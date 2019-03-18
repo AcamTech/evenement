@@ -209,7 +209,7 @@ Route::group(
     /*
      * Backend routes
      */
-    Route::group(['middleware' => ['auth', 'first.run']], function () {
+    Route::group(['middleware' => ['auth', 'first.run', 'is_admin']], function () {
 
         /*
          * Edit User
