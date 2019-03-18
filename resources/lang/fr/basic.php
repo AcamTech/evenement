@@ -60,5 +60,6 @@ return array (
     'months_long' => 'Janvier|Février|Mars|Avril|Mai|Juin|Juillet|Août|Septembre|Octobre|Novembre|Décembre',
   ),
   'home' => 'Home',
-  'my_events' => 'My Events'
+  'my_events' => 'My Events',
+  'no_payment' => 'No payment necessary.'
 );
