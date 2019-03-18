@@ -15,7 +15,32 @@ class UserController extends Controller
      */
     public function showUserHome()
     {
-        return Redirect::route('showSelectOrganiser');
+        $user = Auth::user();
+
+        if (empty($user->roles)) {
+            return response('User has no roles.', 500);
+        }
+
+        $isAdmin = false;
+        $isAttendee = false;
+        foreach ($user->roles as $role) {
+            if ($role->name === 'administrator') {
+                $isAdmin = true;
+            }
+            if ($role->name === 'attendee') {
+                $isAttendee = true;
+            }
+        }
+
+        if ($isAdmin) {
+            return Redirect::route('showSelectOrganiser');
+        }
+
+        if ($isAttendee) {
+            return response('Hello, world!');
+        }
+
+        return response('User is not administrator or attendee.', 401);
     }
 
     /**
