@@ -104,7 +104,9 @@ class GCCollabLoginController extends Controller
             $firstName = $gcCollabName;
             $lastName = '';
             if (strpos(' ', $gcCollabName) > -1) {
-                list($firstName, $lastName) = explode(' ', $gcCollabName, 2);
+                $nameParts = explode(' ', $gcCollabName, 2);
+                $firstName = $nameParts[0];
+                $lastName = $nameParts[1];
             }
 
             $foundUser = User::create([
