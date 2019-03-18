@@ -126,7 +126,7 @@ Route::group(
     });
 
     /*
-     * Attendee event page routes
+     * Public event page routes
      */
     Route::group(['prefix' => 'e'], function () {
 
