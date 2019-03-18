@@ -9,7 +9,7 @@
                         @lang("User.my_profile")</h3>
                 </div>
                 <div class="modal-body">
-                    @if(!Auth::user()->first_name || !Auth::user()->has_seen_first_modal)
+                    @if($showWelcome)
                         <div class="alert alert-info">
                             <b>
                                 @lang("User.welcome_to_app", ["app"=>config('attendize.app_name')])

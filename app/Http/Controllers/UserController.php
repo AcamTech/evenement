@@ -54,11 +54,16 @@ class UserController extends Controller
      */
     public function showEditUser()
     {
-        $data = [
-            'user' => Auth::user(),
-        ];
+        $user = Auth::user();
+        $showWelcome = empty($user->first_name) || !$user->has_seen_first_modal;
 
-        return view('ManageUser.Modals.EditUser', $data);
+        $user->has_seen_first_modal = true;
+        $user->save();
+
+        return view('ManageUser.Modals.EditUser', [
+            'user' => $user,
+            'showWelcome' => $showWelcome
+        ]);
     }
 
     /**
