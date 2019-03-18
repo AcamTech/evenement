@@ -9,6 +9,11 @@ use Validator;
 
 class UserController extends Controller
 {
+    public function showUserHome()
+    {
+        return Redirect::route('showSelectOrganiser');
+    }
+
     /**
      * Show the edit user modal
      *
