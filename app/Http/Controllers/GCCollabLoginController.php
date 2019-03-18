@@ -62,7 +62,7 @@ class GCCollabLoginController extends Controller
     public function showLogin(Request $request)
     {
         if (Auth::check()) {
-            return redirect('/wew-lad');
+            return redirect(Route('showUserHome'));
         }
 
         // redirecting on plain request
