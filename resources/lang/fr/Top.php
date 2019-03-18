@@ -15,4 +15,5 @@ return array (
   'my_profile' => 'Mon profil',
   // Defined in file C:\\wamp\\www\\attendize\\resources\\views\\Shared\\Layouts\\Master.blade.php
   'sign_out' => 'Se déconnecter',
+  'my_tickets' => 'My Passes'
 );

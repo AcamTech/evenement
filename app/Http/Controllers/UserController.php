@@ -48,6 +48,14 @@ class UserController extends Controller
     }
 
     /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showUserTickets()
+    {
+        return view('Attendee.Tickets');
+    }
+
+    /**
      * Show the edit user modal
      *
      * @return \Illuminate\Contracts\View\View

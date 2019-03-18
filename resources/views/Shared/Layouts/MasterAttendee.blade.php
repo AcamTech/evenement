@@ -28,9 +28,9 @@
         </li>
         <li class="divider"></li>
         <li>
-            <a href="#">
+            <a href="{{route('showUserTickets')}}">
                 <i class="ico ico-calendar"></i>
-                My Events
+                @lang('Top.my_tickets')
             </a>
         </li>
         <li class="divider"></li>

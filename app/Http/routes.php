@@ -220,6 +220,10 @@ Route::group(
                 'as'   => 'showUserHome',
                 'uses' => 'UserController@showUserHome',
             ]);
+            Route::get('/passes', [
+                'as'   => 'showUserTickets',
+                'uses' => 'UserController@showUserTickets',
+            ]);
             Route::get('/', [
                 'as'   => 'showEditUser',
                 'uses' => 'UserController@showEditUser',
