@@ -132,6 +132,7 @@ class EventController extends MyBaseController
          * Set the event defaults.
          * @todo these could do mass assigned
          */
+        $event->enable_offline_payments = true;
         $defaults = $event->organiser->event_defaults;
         if ($defaults) {
             $event->organiser_fee_fixed = $defaults->organiser_fee_fixed;
