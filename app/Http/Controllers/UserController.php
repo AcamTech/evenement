@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use Auth;
 use Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Validator;
 
 class UserController extends Controller
 {
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function showUserHome()
     {
         return Redirect::route('showSelectOrganiser');
