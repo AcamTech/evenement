@@ -104,7 +104,7 @@
         });
     });
 
-    @if(!Auth::user()->first_name)
+    @if(!Auth::user()->first_name || !Auth::user()->has_seen_first_modal)
       setTimeout(function () {
         $('.editUserModal').click();
     }, 1000);
