@@ -133,6 +133,8 @@ class EventController extends MyBaseController
          * @todo these could do mass assigned
          */
         $defaults = $event->organiser->event_defaults;
+        $event->enable_offline_payments = true;
+        $event->offline_payment_instructions = __('Order.free');
         if ($defaults) {
             $event->organiser_fee_fixed = $defaults->organiser_fee_fixed;
             $event->organiser_fee_percentage = $defaults->organiser_fee_percentage;
