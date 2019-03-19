@@ -11,6 +11,7 @@
     "type": "project",
     "homepage": "https://www.attendize.com",
     "require": {
+        "php": ">=7",
         "barryvdh/laravel-ide-helper": "~2.4",
         "doctrine/dbal": "~2.8",
         "dompdf/dompdf": "~0.8",
