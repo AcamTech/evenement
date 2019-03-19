@@ -57,7 +57,7 @@ class UserController extends Controller
          */
         $user = Auth::user();
 
-        $attendees = $user->attendees();
+        $attendees = $user->attendees;
 
         return view('Attendee.Tickets', [
             'attendees' => $attendees
