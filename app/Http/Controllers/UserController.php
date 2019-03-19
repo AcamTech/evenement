@@ -48,23 +48,6 @@ class UserController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function showUserTickets()
-    {
-        /**
-         * @var $user User
-         */
-        $user = Auth::user();
-
-        $attendees = $user->attendees;
-
-        return view('Attendee.Tickets', [
-            'attendees' => $attendees
-        ]);
-    }
-
-    /**
      * Show the edit user modal
      *
      * @return \Illuminate\Contracts\View\View

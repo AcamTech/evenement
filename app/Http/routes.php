@@ -220,10 +220,20 @@ Route::group(
                 'as'   => 'showUserHome',
                 'uses' => 'UserController@showUserHome',
             ]);
+
             Route::get('/passes', [
                 'as'   => 'showUserTickets',
-                'uses' => 'UserController@showUserTickets',
+                'uses' => 'UserAttendeesController@showUserTickets',
             ]);
+            Route::get('/attendees/{attendee_id}/cancel', [
+                'as'   => 'userShowCancelAttendee',
+                'uses' => 'UserAttendeesController@showCancelAttendee',
+            ]);
+            Route::post('/attendees/{attendee_id}/cancel', [
+                'as'   => 'userPostCancelAttendee',
+                'uses' => 'UserAttendeesController@postCancelAttendee',
+            ]);
+
             Route::get('/', [
                 'as'   => 'showEditUser',
                 'uses' => 'UserController@showEditUser',
