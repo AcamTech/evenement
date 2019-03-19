@@ -25,6 +25,7 @@ use Omnipay;
 use PDF;
 use PhpSpec\Exception\Exception;
 use Validator;
+use Auth;
 
 class EventCheckoutController extends Controller
 {
@@ -261,12 +262,14 @@ class EventCheckoutController extends Controller
 
         $orderService = new OrderService($order_session['order_total'], $order_session['total_booking_fee'], $event);
         $orderService->calculateFinalCosts();
+        $user = Auth::user();
 
         $data = $order_session + [
                 'event'           => $event,
                 'secondsToExpire' => $secondsToExpire,
                 'is_embedded'     => $this->is_embedded,
-                'orderService'    => $orderService
+                'orderService'    => $orderService,
+                'user' => $user
                 ];
 
         if ($this->is_embedded) {

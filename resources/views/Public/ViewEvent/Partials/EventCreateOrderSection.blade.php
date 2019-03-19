@@ -68,13 +68,13 @@
                     <div class="col-xs-6">
                         <div class="form-group">
                             {!! Form::label("order_first_name", trans("Public_ViewEvent.first_name")) !!}
-                            {!! Form::text("order_first_name", null, ['required' => 'required', 'class' => 'form-control']) !!}
+                            {!! Form::text("order_first_name", $user->first_name ?? null, ['required' => 'required', 'class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group">
                             {!! Form::label("order_last_name", trans("Public_ViewEvent.last_name")) !!}
-                            {!! Form::text("order_last_name", null, ['required' => 'required', 'class' => 'form-control']) !!}
+                            {!! Form::text("order_last_name", $user->last_name ?? null, ['required' => 'required', 'class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             {!! Form::label("order_email", trans("Public_ViewEvent.email")) !!}
-                            {!! Form::text("order_email", null, ['required' => 'required', 'class' => 'form-control']) !!}
+                            {!! Form::text("order_email", $user->email ?? null, ['required' => 'required', 'class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
