@@ -52,7 +52,16 @@ class UserController extends Controller
      */
     public function showUserTickets()
     {
-        return view('Attendee.Tickets');
+        /**
+         * @var $user User
+         */
+        $user = Auth::user();
+
+        $attendees = $user->attendees();
+
+        return view('Attendee.Tickets', [
+            'attendees' => $attendees
+        ]);
     }
 
     /**
