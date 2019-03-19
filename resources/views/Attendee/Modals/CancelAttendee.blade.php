@@ -24,9 +24,9 @@
                     </div>
                 </div>
                 @if(config('attendize.default_payment_gateway') == config('attendize.payment_gateway_stripe'))
-                    <div class="form-group">
+                    <div class="form-group" style="display: none;">
                             <div class="checkbox custom-checkbox">
-                                <input type="checkbox" name="refund_attendee" id="refund_attendee" value="1">
+                                <input type="checkbox" name="refund_attendee" id="refund_attendee" value="0">
                                 <label for="refund_attendee">{{ @trans("ManageEvent.cancel_refund_user", ["name"=>$attendee->full_name]) }}</label>
                             </div>
                     </div>

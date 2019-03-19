@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attendee;
+use App\Models\EventStats;
 use App\Models\User;
 use Auth;
 use Hash;
@@ -24,7 +25,12 @@ class UserAttendeesController extends Controller
          */
         $user = Auth::user();
 
-        $attendees = $user->attendees;
+        $attendees = $user->attendees()
+            ->join('orders', 'orders.id', '=', 'attendees.order_id')
+            ->withoutCancelled()
+            ->orderBy('attendees.email', 'asc')
+            ->select('attendees.*', 'orders.order_reference')
+            ->get();
 
         return view('Attendee.Tickets', [
             'attendees' => $attendees
@@ -48,7 +54,7 @@ class UserAttendeesController extends Controller
             'tickets'  => $attendee->event->tickets->pluck('title', 'id'),
         ];
 
-        return view('ManageEvent.Modals.CancelAttendee', $data);
+        return view('Attendee.Modals.CancelAttendee', $data);
     }
 
     /**
