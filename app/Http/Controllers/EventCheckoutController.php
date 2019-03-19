@@ -506,6 +506,7 @@ class EventCheckoutController extends Controller
      */
     public function completeOrder($event_id, $return_json = true)
     {
+        $currentUser = Auth::user();
 
         DB::beginTransaction();
 
@@ -621,6 +622,7 @@ class EventCheckoutController extends Controller
                     $attendee->ticket_id = $attendee_details['ticket']['id'];
                     $attendee->account_id = $event->account->id;
                     $attendee->reference_index = $attendee_increment;
+                    $attendee->user_id = $currentUser->id ?? null;
                     $attendee->save();
 
 
