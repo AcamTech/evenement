@@ -7,7 +7,7 @@
             @if(count($events))
 
                 @foreach($events->where('is_live', 1) as $event)
-                    <li>
+                    <li class="event-item-{{$event->organiser->id}}">
                         <time datetime="{{ $event->start_date }}">
                             <span class="day">{{ $event->start_date->format('d') }}</span>
                             <span class="month">{{ explode("|", trans("basic.months_short"))[$event->start_date->format('n')] }}</span>

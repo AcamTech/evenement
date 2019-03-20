@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attendee;
-use App\Models\EventStats;
-use App\Models\User;
+use App\Models\Event;
 use Auth;
+use Carbon\Carbon;
 use Hash;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Validator;
 
@@ -20,6 +17,24 @@ class UserEventsController extends Controller
      */
     public function showEvents()
     {
-        return view('Attendee.Dashboard');
+        $upcoming_events = Event::where('end_date', '>=', Carbon::now())
+            ->get();
+        $past_events = Event::where('end_date', '<', Carbon::now())
+            ->limit(10)
+            ->get();
+
+        $organisers = [];
+        foreach ($past_events as $event) {
+            $organisers[$event->organiser->id] = $event->organiser;
+        }
+        foreach ($upcoming_events as $event) {
+            $organisers[$event->organiser->id] = $event->organiser;
+        }
+
+        return view('Attendee.Dashboard', [
+            'upcoming_events' => $upcoming_events,
+            'past_events' => $past_events,
+            'organisers' => $organisers
+        ]);
     }
 }
