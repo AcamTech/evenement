@@ -12,6 +12,7 @@ return array (
   'cancel_attendee_title' => 'Cancel :cancel',
   'cancel_description' => 'Cancelling Attendees will remove them from the attendee list.',
   'cancel_notify' => 'Notify :name their ticket has been cancelled.',
+  'cancel_notify_organiser' => 'Notify event organiser your ticket has been cancelled.',
   'cancel_order_:ref' => 'Cancel Order: :ref',
   'cancel_refund' => 'If you would like to refund the order which this attendee belongs to you can do so <strong><a href=":url">here</a></strong>.',
   'cancel_refund_user' => 'Refund :name for their ticket.',

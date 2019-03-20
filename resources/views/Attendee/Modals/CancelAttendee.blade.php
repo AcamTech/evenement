@@ -13,14 +13,11 @@
                     {{ @trans("ManageEvent.cancel_description") }}
                 </p>
 
-                <p>
-                    {!! @trans("ManageEvent.cancel_refund", ["url"=>route('showEventOrders', ['event_id' => $attendee->event->id, 'q' => $attendee->order->order_reference])]) !!}
-                </p>
                 <br>
                 <div class="form-group">
                     <div class="checkbox custom-checkbox">
                         <input type="checkbox" name="notify_attendee" id="notify_attendee" value="1">
-                        <label for="notify_attendee">{{ @trans("ManageEvent.cancel_notify", [ "name" => $attendee->full_name]) }}</label>
+                        <label for="notify_attendee">{{ @trans("ManageEvent.cancel_notify_organiser", [ "name" => $attendee->full_name]) }}</label>
                     </div>
                 </div>
                 @if(config('attendize.default_payment_gateway') == config('attendize.payment_gateway_stripe'))
