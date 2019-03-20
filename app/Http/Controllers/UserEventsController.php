@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Hash;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
+use JavaScript;
 use Validator;
 
 class UserEventsController extends Controller
@@ -23,6 +24,17 @@ class UserEventsController extends Controller
         foreach ($upcoming_events as $event) {
             $organisers[$event->organiser->id] = $event->organiser;
         }
+
+        JavaScript::put([
+            'User'                => [
+                'full_name'    => Auth::user()->full_name,
+                'email'        => Auth::user()->email,
+                'is_confirmed' => Auth::user()->is_confirmed,
+            ],
+            'DateTimeFormat'      => config('attendize.default_date_picker_format'),
+            'DateSeparator'       => config('attendize.default_date_picker_seperator'),
+            'GenericErrorMessage' => trans("Controllers.whoops"),
+        ]);
 
         return view('Attendee.Dashboard', [
             'upcoming_events' => $upcoming_events,
