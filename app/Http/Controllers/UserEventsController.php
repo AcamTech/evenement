@@ -17,23 +17,15 @@ class UserEventsController extends Controller
      */
     public function showEvents()
     {
-        $upcoming_events = Event::where('end_date', '>=', Carbon::now())
-            ->get();
-        $past_events = Event::where('end_date', '<', Carbon::now())
-            ->limit(10)
-            ->get();
+        $upcoming_events = Event::where('end_date', '>=', Carbon::now())->paginate(15);
 
         $organisers = [];
-        foreach ($past_events as $event) {
-            $organisers[$event->organiser->id] = $event->organiser;
-        }
         foreach ($upcoming_events as $event) {
             $organisers[$event->organiser->id] = $event->organiser;
         }
 
         return view('Attendee.Dashboard', [
             'upcoming_events' => $upcoming_events,
-            'past_events' => $past_events,
             'organisers' => $organisers
         ]);
     }

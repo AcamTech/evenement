@@ -14,8 +14,6 @@
 
 @section('content')
     <section id="events" class="container">
-        <p>Hello, world!</p>
-        <p>Upcoming events: {{count($upcoming_events)}}</p>
         <div class="row">
             <div class="col-xs-12 col-md-8">
                 @include('Public.ViewOrganiser.Partials.EventListingPanel',
@@ -24,12 +22,16 @@
                         'events'      => $upcoming_events
                     ]
                 )
-                @include('Public.ViewOrganiser.Partials.EventListingPanel',
-                    [
-                        'panel_title' => trans("Public_ViewOrganiser.past_events"),
-                        'events'      => $past_events
-                    ]
-                )
+            </div>
+            <div class="col-xs-12 col-md-4">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <div style="text-align: center;">
+                    {{ $upcoming_events->links()  }}
+                </div>
             </div>
             <div class="col-xs-12 col-md-4">
                 &nbsp;
