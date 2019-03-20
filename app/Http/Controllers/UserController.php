@@ -44,7 +44,7 @@ class UserController extends Controller
             return Redirect::route('showSelectOrganiser');
         }
 
-        return view('Attendee.Dashboard');
+        return Redirect::route('showUserEvents');
     }
 
     /**

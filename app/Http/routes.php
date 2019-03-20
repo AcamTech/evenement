@@ -221,6 +221,11 @@ Route::group(
                 'uses' => 'UserController@showUserHome',
             ]);
 
+            Route::get('/events', [
+                'as'   => 'showUserEvents',
+                'uses' => 'UserEventsController@showEvents',
+            ]);
+
             Route::get('/passes', [
                 'as'   => 'showUserTickets',
                 'uses' => 'UserAttendeesController@showUserTickets',
