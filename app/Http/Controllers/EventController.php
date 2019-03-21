@@ -74,6 +74,9 @@ class EventController extends MyBaseController
             $event->location_is_manual = 0;
         } else { /* Manually entered */
             $event->venue_name = $request->get('location_venue_name');
+            if (empty($event->venue_name) && !empty($request->get('venue_name_full'))) {
+                $event->venue_name = $request->get('venue_name_full');
+            }
             $event->location_address_line_1 = $request->get('location_address_line_1');
             $event->location_address_line_2 = $request->get('location_address_line_2');
             $event->location_state = $request->get('location_state');
