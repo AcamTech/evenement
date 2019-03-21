@@ -24,6 +24,7 @@ class UserEventsController extends Controller
         $user->has_seen_first_modal = !$user->has_seen_first_modal;
         $user->save();
 
+        // querying for events
         $query = Event::where('end_date', '>=', Carbon::now())
             ->where('is_live', 1);
         if ($request->isMethod('post')) {
@@ -36,11 +37,13 @@ class UserEventsController extends Controller
         }
         $upcoming_events = $query->paginate(10);
 
+        // resolving organisers
         $organisers = [];
         foreach ($upcoming_events as $event) {
             $organisers[$event->organiser->id] = $event->organiser;
         }
 
+        // putting js necessary for geocomplete querying
         JavaScript::put([
             'User'                => [
                 'full_name'    => Auth::user()->full_name,
@@ -52,8 +55,20 @@ class UserEventsController extends Controller
             'GenericErrorMessage' => trans("Controllers.whoops"),
         ]);
 
+        // grouping events into pairs
+        $eventGroups = [];
+        foreach ($upcoming_events as $i => $event) {
+            $groupIndex = $i % 2;
+            if (!array_key_exists($groupIndex, $eventGroups)) {
+                $eventGroups[$groupIndex] = [];
+            }
+            $eventGroups[$groupIndex][] = $event;
+        }
+
+        // rendering it all out
         return view('Attendee.Dashboard', [
             'upcoming_events' => $upcoming_events,
+            'event_groups' => $eventGroups,
             'organisers' => $organisers
         ]);
     }
