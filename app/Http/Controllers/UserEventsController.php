@@ -20,10 +20,6 @@ class UserEventsController extends Controller
      */
     public function showEvents(Request $request)
     {
-        $user = Auth::user();
-        $user->has_seen_first_modal = !$user->has_seen_first_modal;
-        $user->save();
-
         // querying for events
         $query = Event::where('end_date', '>=', Carbon::now())
             ->where('is_live', 1);
@@ -58,11 +54,11 @@ class UserEventsController extends Controller
         // grouping events into pairs
         $eventGroups = [];
         foreach ($upcoming_events as $i => $event) {
-            $groupIndex = $i % 2;
-            if (!array_key_exists($groupIndex, $eventGroups)) {
-                $eventGroups[$groupIndex] = [];
+            $groupKey = ( $i - ( $i % 2 ) ) / 2;
+            if (!array_key_exists($groupKey, $eventGroups)) {
+                $eventGroups[$groupKey] = [];
             }
-            $eventGroups[$groupIndex][] = $event;
+            $eventGroups[$groupKey][] = $event;
         }
 
         // rendering it all out
