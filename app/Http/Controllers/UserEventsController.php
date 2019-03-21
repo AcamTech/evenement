@@ -18,7 +18,7 @@ class UserEventsController extends Controller
      */
     public function showEvents()
     {
-        $upcoming_events = Event::where('end_date', '>=', Carbon::now())->paginate(15);
+        $upcoming_events = Event::where('end_date', '>=', Carbon::now())->paginate(10);
 
         $organisers = [];
         foreach ($upcoming_events as $event) {
