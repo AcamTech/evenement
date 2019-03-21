@@ -41,12 +41,12 @@
 @section('content')
     <section id="events" class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-8">
-                <h2>Browse Events</h2>
+            <div class="col-md-12">
+                <h2>{{trans('Dashboard.browse_events')}}</h2>
                 <form action="" class="gf">
                     <div class="row">
                         <div class="col-sm-12">
-                            {!! Form::label('name', 'Keyword', ['class' => 'control-label ']) !!}
+                            {!! Form::label('name', trans('Dashboard.keyword'), ['class' => 'control-label ']) !!}
                             <input
                                 type="text"
                                 name="keyword"
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            {!! Form::label('name', 'Distance', ['class' => 'control-label']) !!}
+                            {!! Form::label('name', trans('Dashboard.distance'), ['class' => 'control-label']) !!}
                             <select name="location_radius" id="" class="form-control">
                                 <option value="5">5</option>
                                 <option value="10">10</option>

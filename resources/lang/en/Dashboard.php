@@ -23,4 +23,7 @@ return array (
     'ticket_sales_volume' => 'Ticket Sales Volume',
     'tickets_sold' => 'Tickets Sold',
     'website_embed_code' => 'Website Embed Code',
+    'browse_events' => 'Browse Events',
+    'keyword' => 'Keyword',
+    'distance' => 'Distance'
 );
