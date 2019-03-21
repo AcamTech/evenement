@@ -12,6 +12,33 @@ use Illuminate\View\View;
 use JavaScript;
 use Validator;
 
+/**
+ * Calculates the great-circle distance between two points, with
+ * the Haversine formula.
+ * @param float $latitudeFrom Latitude of start point in [deg decimal]
+ * @param float $longitudeFrom Longitude of start point in [deg decimal]
+ * @param float $latitudeTo Latitude of target point in [deg decimal]
+ * @param float $longitudeTo Longitude of target point in [deg decimal]
+ * @param float $earthRadius Mean earth radius in [m]
+ * @return float Distance between points in [m] (same as earthRadius)
+ */
+function haversineGreatCircleDistance(
+    $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000)
+{
+    // convert from degrees to radians
+    $latFrom = deg2rad($latitudeFrom);
+    $lonFrom = deg2rad($longitudeFrom);
+    $latTo = deg2rad($latitudeTo);
+    $lonTo = deg2rad($longitudeTo);
+
+    $latDelta = $latTo - $latFrom;
+    $lonDelta = $lonTo - $lonFrom;
+
+    $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
+            cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+    return $angle * $earthRadius;
+}
+
 class UserEventsController extends Controller
 {
     /**
@@ -27,9 +54,6 @@ class UserEventsController extends Controller
             if ($request->has('keyword') && !empty($request->input('keyword'))) {
                 $query = $query->where('title', 'like', '%'. $request->input('keyword'). '%');
             }
-            if ($request->has('place_id') && !empty($request->input('place_id'))) {
-                $query = $query->where('location_google_place_id', $request->input('place_id'));
-            }
             if ($request->has('start_date') && !empty($request->input('start_date'))) {
                 $query = $query->where('start_date', '>=', date('Y-m-d h:i:sA', strtotime($request->input('start_date'))));
             }
@@ -38,6 +62,23 @@ class UserEventsController extends Controller
             }
         }
         $upcoming_events = $query->orderBy('start_date', 'ASC')->get();
+
+        if ($request->has('place_id') && !empty($request->input('place_id'))) {
+            $rangeInMeters = $request->input('location_radius') * 1000;
+            $inLat = $request->input('lat');
+            $inLng = $request->input('lng');
+            $upcoming_events = array_filter(
+                iterator_to_array($upcoming_events),
+                function (Event $event) use ($rangeInMeters, $inLat, $inLng) {
+                    if (empty($event->location_lat) || empty($event->location_long)) {
+                        return false;
+                    }
+
+                    $eventDistanceInMeters = haversineGreatCircleDistance($inLat, $inLng,  $event->location_lat, $event->location_long);
+                    return $eventDistanceInMeters < $rangeInMeters;
+                }
+            );
+        }
 
         // resolving organisers
         $organisers = [];
