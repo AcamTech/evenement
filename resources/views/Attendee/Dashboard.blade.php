@@ -89,9 +89,9 @@
                             {!! Form::select(
                                 'location_radius',
                                 [
-                                    '5' => '5',
-                                    '5' => '5',
-                                    '5' => '5'
+                                    '5' => '5 KM',
+                                    '10' => '10 KM',
+                                    '25' => '25 KM'
                                 ],
                                 Request::input('location_radius'),
                                 ['class' => 'form-control']
