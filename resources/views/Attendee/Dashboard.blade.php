@@ -193,9 +193,11 @@
                         </ul>
                     </div>
                 </div>
+                <?php /*
                 <div style="text-align: center;">
                     {{ $upcoming_events->links()  }}
                 </div>
+                */ ?>
             </div>
             <div class="col-xs-12 col-md-4">
                 &nbsp;

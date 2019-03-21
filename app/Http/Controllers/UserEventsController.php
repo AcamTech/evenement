@@ -37,8 +37,7 @@ class UserEventsController extends Controller
                 $query = $query->where('end_date', '<=', date('Y-m-d h:i:sA', strtotime($request->input('end_date'))));
             }
         }
-        $upcoming_events = $query->orderBy('start_date', 'ASC')
-            ->paginate(10);
+        $upcoming_events = $query->orderBy('start_date', 'ASC')->get();
 
         // resolving organisers
         $organisers = [];
