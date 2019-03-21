@@ -145,6 +145,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             {!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
+                            <a href="{{route('showUserHome')}}" class="btn btn-link">{{trans('Dashboard.reset')}}</a>
                         </div>
                     </div>
                 </form>

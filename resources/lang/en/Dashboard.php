@@ -28,5 +28,6 @@ return array (
     'distance_from' => 'Distance from Location',
     'search_form' => 'Search Form',
     'search_results' => 'Search Results',
-    'location' => 'Location'
+    'location' => 'Location',
+    'reset' => 'Reset'
 );
