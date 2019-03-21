@@ -56,8 +56,10 @@
                     @csrf
                     <div class="row">
                         <div class="col-sm-12">
-                            {!! Form::label('keyword', trans('Dashboard.keyword'), ['class' => 'control-label ']) !!}
-                            {!! Form::text('keyword', Request::input('keyword'), ['class' => 'form-control']) !!}
+                            <div class="form-group">
+                                {!! Form::label('keyword', trans('Dashboard.keyword'), ['class' => 'control-label ']) !!}
+                                {!! Form::text('keyword', Request::input('keyword'), ['class' => 'form-control']) !!}
+                            </div>
                         </div>
                     </div>
                     <div class="row">
