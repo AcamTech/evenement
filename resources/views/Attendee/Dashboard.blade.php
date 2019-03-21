@@ -8,6 +8,14 @@
             background-color: {{$organiser->page_header_bg_color}};
         }
         @endforeach
+
+        .address-manual {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #FAFAFA;
+        }
     </style>
 
     {!! HTML::script('https://maps.googleapis.com/maps/api/js?libraries=places&key='.env("GOOGLE_MAPS_GEOCODING_KEY")) !!}
@@ -43,7 +51,8 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>{{trans('Dashboard.browse_events')}}</h2>
-                <form action="{{route('postUserEvents')}}" method="post" class="gf">
+                <h4>{{trans('Dashboard.search_form')}}</h4>
+                <form action="{{route('postUserEvents')}}" method="post" class="gf address-manual">
                     @csrf
                     <div class="row">
                         <div class="col-sm-12">
@@ -140,7 +149,7 @@
                 <hr>
                 @include('Public.ViewOrganiser.Partials.EventListingPanel',
                     [
-                        'panel_title' => 'Search Results',
+                        'panel_title' => trans('Dashboard.search_results'),
                         'events'      => $upcoming_events
                     ]
                 )
