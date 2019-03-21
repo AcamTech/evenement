@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group address-automatic">
-                                {!! Form::label('venue_name_full', trans("Event.venue_name"), ['class' => 'control-label ']) !!}
+                                {!! Form::label('venue_name_full', trans("Dashboard.location"), ['class' => 'control-label ']) !!}
                                 {!! Form::text(
                                     'venue_name_full',
                                     Request::input('venue_name_full'),
@@ -96,7 +96,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            {!! Form::label('location_radius', trans('Dashboard.distance'), ['class' => 'control-label']) !!}
+                            {!! Form::label('location_radius', trans('Dashboard.distance_from'), ['class' => 'control-label']) !!}
                             {!! Form::select(
                                 'location_radius',
                                 [

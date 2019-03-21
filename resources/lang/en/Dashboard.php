@@ -25,7 +25,8 @@ return array (
     'website_embed_code' => 'Website Embed Code',
     'browse_events' => 'Browse Events',
     'keyword' => 'Keyword',
-    'distance' => 'Distance from Venue',
+    'distance_from' => 'Distance from Location',
     'search_form' => 'Search Form',
-    'search_results' => 'Search Results'
+    'search_results' => 'Search Results',
+    'location' => 'Location'
 );
