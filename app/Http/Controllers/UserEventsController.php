@@ -20,6 +20,10 @@ class UserEventsController extends Controller
      */
     public function showEvents(Request $request)
     {
+        $user = Auth::user();
+        $user->has_seen_first_modal = !$user->has_seen_first_modal;
+        $user->save();
+
         if ($request->isMethod('post')) {
             $query = Event::where('end_date', '>=', Carbon::now());
             if ($request->has('keyword')) {
