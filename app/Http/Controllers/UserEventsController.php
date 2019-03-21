@@ -24,18 +24,17 @@ class UserEventsController extends Controller
         $user->has_seen_first_modal = !$user->has_seen_first_modal;
         $user->save();
 
+        $query = Event::where('end_date', '>=', Carbon::now())
+            ->where('is_live', 1);
         if ($request->isMethod('post')) {
-            $query = Event::where('end_date', '>=', Carbon::now());
             if ($request->has('keyword')) {
                 $query = $query->where('title', 'like', '%'. $request->input('keyword'). '%');
             }
             if ($request->has('place_id')) {
                 $query = $query->where('location_google_place_id', $request->input('place_id'));
             }
-            $upcoming_events = $query->paginate(10);
-        } else {
-            $upcoming_events = Event::where('end_date', '>=', Carbon::now())->paginate(10);
         }
+        $upcoming_events = $query->paginate(10);
 
         $organisers = [];
         foreach ($upcoming_events as $event) {
