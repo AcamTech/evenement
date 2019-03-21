@@ -24,14 +24,21 @@ class UserEventsController extends Controller
         $query = Event::where('end_date', '>=', Carbon::now())
             ->where('is_live', 1);
         if ($request->isMethod('post')) {
-            if ($request->has('keyword')) {
+            if ($request->has('keyword') && !empty($request->input('keyword'))) {
                 $query = $query->where('title', 'like', '%'. $request->input('keyword'). '%');
             }
-            if ($request->has('place_id')) {
+            if ($request->has('place_id') && !empty($request->input('place_id'))) {
                 $query = $query->where('location_google_place_id', $request->input('place_id'));
             }
+            if ($request->has('start_date') && !empty($request->input('start_date'))) {
+                $query = $query->where('start_date', '>=', date('Y-m-d h:i:sA', strtotime($request->input('start_date'))));
+            }
+            if ($request->has('end_date') && !empty($request->input('end_date'))) {
+                $query = $query->where('end_date', '<=', date('Y-m-d h:i:sA', strtotime($request->input('end_date'))));
+            }
         }
-        $upcoming_events = $query->paginate(10);
+        $upcoming_events = $query->orderBy('start_date', 'ASC')
+            ->paginate(10);
 
         // resolving organisers
         $organisers = [];
