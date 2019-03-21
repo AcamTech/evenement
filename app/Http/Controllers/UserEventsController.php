@@ -7,6 +7,7 @@ use Auth;
 use Carbon\Carbon;
 use Hash;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 use JavaScript;
 use Validator;
@@ -14,11 +15,20 @@ use Validator;
 class UserEventsController extends Controller
 {
     /**
+     * @param Request $request
      * @return Factory|View
      */
-    public function showEvents()
+    public function showEvents(Request $request)
     {
-        $upcoming_events = Event::where('end_date', '>=', Carbon::now())->paginate(10);
+        if ($request->isMethod('post')) {
+            $query = Event::where('end_date', '>=', Carbon::now());
+            if ($request->has('keyword')) {
+                $query = $query->where('title', 'like', '%'. $request->input('keyword'). '%');
+            }
+            $upcoming_events = $query->paginate(10);
+        } else {
+            $upcoming_events = Event::where('end_date', '>=', Carbon::now())->paginate(10);
+        }
 
         $organisers = [];
         foreach ($upcoming_events as $event) {

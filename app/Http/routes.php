@@ -226,6 +226,11 @@ Route::group(
                 'uses' => 'UserEventsController@showEvents',
             ]);
 
+            Route::post('/events', [
+                'as'   => 'postUserEvents',
+                'uses' => 'UserEventsController@showEvents',
+            ]);
+
             Route::get('/passes', [
                 'as'   => 'showUserTickets',
                 'uses' => 'UserAttendeesController@showUserTickets',
