@@ -103,7 +103,7 @@ class GCCollabLoginController extends Controller
         if (is_null($foundUser)) {
             $firstName = $gcCollabName;
             $lastName = '';
-            if (strpos(' ', $gcCollabName) > -1) {
+            if (strpos($gcCollabName, ' ') > -1) {
                 $nameParts = explode(' ', $gcCollabName, 2);
                 $firstName = $nameParts[0];
                 $lastName = $nameParts[1];
