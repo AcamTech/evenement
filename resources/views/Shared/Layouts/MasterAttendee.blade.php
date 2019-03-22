@@ -5,10 +5,6 @@
     Home
 @endsection
 
-@section('page_title')
-    {{Auth::user()->first_name}} {{Auth::user()->last_name}} Dashboard
-@stop
-
 @section('menu_title')
     {{Auth::user()->first_name}} {{Auth::user()->last_name}}
 @endsection

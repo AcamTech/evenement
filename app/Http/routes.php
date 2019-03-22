@@ -221,12 +221,12 @@ Route::group(
                 'uses' => 'UserController@showUserHome',
             ]);
 
-            Route::get('/events', [
+            Route::get('/browse', [
                 'as'   => 'showUserEvents',
                 'uses' => 'UserEventsController@showEvents',
             ]);
 
-            Route::post('/events', [
+            Route::post('/browse', [
                 'as'   => 'postUserEvents',
                 'uses' => 'UserEventsController@showEvents',
             ]);
