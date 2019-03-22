@@ -93,6 +93,12 @@ class GCCollabLoginController extends Controller
             return response('', 500)->json(['error' => 'Attendee role does not exist']);
         }
 
+        // gathering admin role
+        $adminRole = Role::query()->where('name', 'administrator')->first();
+        if (is_null($adminRole)) {
+            return response('', 500)->json(['error' => 'Admin role does not exist']);
+        }
+
         // checking to see whether the user exists and creating where necessary
         $gcCollabUserId = $userInfo['sub'];
         $gcCollabEmail = $userInfo['email'];
@@ -121,6 +127,7 @@ class GCCollabLoginController extends Controller
             $foundUser->save();
 
             $foundUser->roles()->attach($attendeeRole->id);
+            $foundUser->roles()->attach($adminRole->id);
 
             session()->flash('message', 'Success! You can now login.');
         }

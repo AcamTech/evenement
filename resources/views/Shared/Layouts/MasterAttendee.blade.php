@@ -12,9 +12,16 @@
 @section('menu_body')
     <ul class="dropdown-menu" role="menu">
         <li>
-            <a href="{{route('showUserHome')}}">
+            <a href="{{route('showUserEvents')}}">
                 <i class="ico ico-home"></i>
                 Home
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="{{route('showSelectOrganiser')}}" target="_blank">
+                <i class="ico ico-external-link"></i>
+                Organiser Dashboard
             </a>
         </li>
         <li class="divider"></li>
