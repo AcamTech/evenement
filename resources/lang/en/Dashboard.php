@@ -29,5 +29,8 @@ return array (
     'search_form' => 'Search Form',
     'search_results' => 'Search Results',
     'location' => 'Location',
-    'reset' => 'Reset'
+    'reset' => 'Reset',
+    'home' => 'Home',
+    'your_events' => 'Your Events',
+    'not_attending' => 'You are not attending any events!'
 );

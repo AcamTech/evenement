@@ -15,5 +15,5 @@ return array (
   'my_profile' => 'My Profile',
   // Defined in file C:\\wamp\\www\\attendize\\resources\\views\\Shared\\Layouts\\Master.blade.php
   'sign_out' => 'Sign Out',
-  'my_tickets' => 'My Passes'
+  'my_tickets' => 'My Events'
 );

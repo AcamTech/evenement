@@ -231,7 +231,7 @@ Route::group(
                 'uses' => 'UserEventsController@showEvents',
             ]);
 
-            Route::get('/passes', [
+            Route::get('/events', [
                 'as'   => 'showUserTickets',
                 'uses' => 'UserAttendeesController@showUserTickets',
             ]);

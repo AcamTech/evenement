@@ -2,7 +2,7 @@
 
 @section('title')
     @parent
-    Home
+    {{trans('Dashboard.home')}}
 @endsection
 
 @section('menu_title')
