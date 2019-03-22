@@ -32,5 +32,6 @@ return array (
     'reset' => 'Reset',
     'home' => 'Home',
     'your_events' => 'Your Events',
-    'not_attending' => 'You are not attending any events!'
+    'not_attending' => 'You are not attending any events!',
+    'view_event_details' => 'View Event Details'
 );

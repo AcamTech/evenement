@@ -27,13 +27,27 @@ class UserAttendeesController extends Controller
 
         $attendees = $user->attendees()
             ->join('orders', 'orders.id', '=', 'attendees.order_id')
+            ->join('events', 'events.id', '=', 'attendees.event_id')
             ->withoutCancelled()
-            ->orderBy('attendees.email', 'asc')
+            ->orderBy('events.start_date', 'desc')
             ->select('attendees.*', 'orders.order_reference')
             ->get();
 
+        $eventAttendees = [];
+        foreach ($attendees as $attendee) {
+            $eventId = $attendee->event->id;
+            if (!array_key_exists($eventId, $eventAttendees)) {
+                $eventAttendees[$eventId] = [
+                    'event' => $attendee->event,
+                    'attendees' => []
+                ];
+            }
+            $eventAttendees[$eventId]['attendees'][] = $attendee;
+        }
+
         return view('Attendee.Tickets', [
-            'attendees' => $attendees
+            'attendees' => $attendees,
+            'event_attendees' => $eventAttendees
         ]);
     }
 
