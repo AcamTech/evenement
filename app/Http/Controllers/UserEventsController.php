@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\GenerateTicket;
+use App\Models\Attendee;
 use App\Models\Event;
 use Auth;
 use Carbon\Carbon;
@@ -11,6 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use JavaScript;
 use Validator;
+use Config;
+use Log;
 
 /**
  * Calculates the great-circle distance between two points, with
@@ -114,5 +118,29 @@ class UserEventsController extends Controller
             'event_groups' => $eventGroups,
             'organisers' => $organisers
         ]);
+    }
+
+    /**
+     * @param $attendee_id
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
+    public function showExportTicket($attendee_id)
+    {
+        $attendee = Attendee::scope()->findOrFail($attendee_id);
+
+        Config::set('queue.default', 'sync');
+        Log::info("*********");
+        Log::info($attendee_id);
+        Log::info($attendee);
+
+
+        $this->dispatch(new GenerateTicket($attendee->order->order_reference . "-" . $attendee->reference_index));
+
+        $pdf_file_name = $attendee->order->order_reference . '-' . $attendee->reference_index;
+        $pdf_file_path = public_path(config('attendize.event_pdf_tickets_path')) . '/' . $pdf_file_name;
+        $pdf_file = $pdf_file_path . '.pdf';
+
+
+        return response()->download($pdf_file);
     }
 }

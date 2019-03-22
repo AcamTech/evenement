@@ -230,6 +230,10 @@ Route::group(
                 'as'   => 'postUserEvents',
                 'uses' => 'UserEventsController@showEvents',
             ]);
+            Route::get('/attendees/{attendee_id}/export_ticket', [
+                'as'   => 'userShowExportTicket',
+                'uses' => 'UserEventsController@showExportTicket',
+            ]);
 
             Route::get('/events', [
                 'as'   => 'showUserTickets',

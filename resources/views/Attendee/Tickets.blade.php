@@ -81,7 +81,7 @@
                                                     <ul class="dropdown-menu">
                                                         <li>
                                                             <a
-                                                                    href="{{route('showExportTicket', ['event_id'=>$event->id, 'attendee_id'=>$attendee->id])}}"
+                                                                    href="{{route('userShowExportTicket', ['attendee_id'=>$attendee->id])}}"
                                                                     href="#"
                                                             >
                                                                 @lang("ManageEvent.download_pdf_ticket")
