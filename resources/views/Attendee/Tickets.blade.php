@@ -63,17 +63,13 @@
                                         <tr class="attendee_{{$attendee->id}} {{$attendee->is_cancelled ? 'danger' : ''}}">
                                             <td>{{{$attendee->full_name}}}</td>
                                             <td>
-                                                <a data-modal-id="MessageAttendee" href="javascript:void(0);" class="loadModal"
-                                                   data-href="{{route('showMessageAttendee', ['attendee_id'=>$attendee->id])}}"
-                                                > {{$attendee->email}}</a>
+                                                {{$attendee->email}}
                                             </td>
                                             <td>
                                                 {{{$attendee->ticket->title}}}
                                             </td>
                                             <td>
-                                                <a href="javascript:void(0);" data-modal-id="view-order-{{ $attendee->order->id }}" data-href="{{route('showManageOrder', ['order_id'=>$attendee->order->id])}}" title="View Order #{{$attendee->order->order_reference}}" class="loadModal">
-                                                    {{$attendee->order->order_reference}}
-                                                </a>
+                                                {{$attendee->order->order_reference}}
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group">
