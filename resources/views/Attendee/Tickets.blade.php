@@ -14,7 +14,7 @@
 
 @section('content')
     <div class="container">
-        <h4>{{trans('Organiser.events')}}</h4>
+        <h2>{{trans('Organiser.events')}}</h2>
         <!--Start Attendees table-->
         <div class="row">
             <div class="col-md-12">
