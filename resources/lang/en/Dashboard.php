@@ -31,7 +31,9 @@ return array (
     'location' => 'Location',
     'reset' => 'Reset',
     'home' => 'Home',
+    'search_events' => 'Search Events',
     'your_events' => 'Your Events',
     'not_attending' => 'You are not attending any events!',
-    'view_event_details' => 'View Event Details'
+    'view_event_details' => 'View Event Details',
+    'organiser_dashboard' => 'Organiser Dashboard'
 );

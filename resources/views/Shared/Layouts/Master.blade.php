@@ -22,6 +22,13 @@
             </li>
         @endforeach
         <li class="divider"></li>
+        <li>
+            <a href="{{route('showUserEvents')}}" target="_blank">
+                <i class="ico ico-external-link"></i>
+                Your Attendee Dashboard
+            </a>
+        </li>
+        <li class="divider"></li>
 
         <li>
             <a data-href="{{route('showEditUser')}}" data-modal-id="EditUser"

@@ -13,15 +13,15 @@
     <ul class="dropdown-menu" role="menu">
         <li>
             <a href="{{route('showUserEvents')}}">
-                <i class="ico ico-home"></i>
-                Home
+                <i class="ico ico-search"></i>
+                {{trans('Dashboard.search_events')}}
             </a>
         </li>
         <li class="divider"></li>
         <li>
             <a href="{{route('showSelectOrganiser')}}" target="_blank">
                 <i class="ico ico-external-link"></i>
-                Organiser Dashboard
+                {{trans('Dashboard.organiser_dashboard')}}
             </a>
         </li>
         <li class="divider"></li>
