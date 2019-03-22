@@ -51,15 +51,15 @@ class IsAttendee
             return response('Authorized and has id but could not find user', 500);
         }
 
-        $isAdmin = false;
+        $isAttendee = false;
         foreach ($foundUser->roles as $role) {
             if ($role->name === 'attendee') {
-                $isAdmin = true;
+                $isAttendee = true;
 
                 break;
             }
         }
-        if (!$isAdmin) {
+        if (!$isAttendee) {
             return response('Unauthorized.', 401);
         }
 

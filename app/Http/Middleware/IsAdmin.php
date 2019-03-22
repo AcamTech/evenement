@@ -68,7 +68,7 @@ class IsAdmin
             return response('Unauthorized.', 401);
         }
 
-        if ($isAttendee) {
+        if (!$isAdmin) {
             return Redirect::route('showUserHome');
         }
 

@@ -40,7 +40,7 @@ class UserController extends Controller
             return response('User is not administrator or attendee.', 401);
         }
 
-        if ($isAdmin) {
+        if (!$isAttendee) {
             return Redirect::route('showSelectOrganiser');
         }
 
