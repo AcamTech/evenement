@@ -43,7 +43,7 @@ function haversineGreatCircleDistance(
     return $angle * $earthRadius;
 }
 
-class UserEventsController extends Controller
+class UserEventsController extends MyBaseController
 {
     /**
      * @param Request $request
