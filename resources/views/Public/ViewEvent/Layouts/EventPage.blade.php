@@ -77,6 +77,7 @@
 
     </head>
     <body class="attendize">
+        @include('Shared.Partials.Topbar')
         <div id="event_page_wrap" vocab="http://schema.org/" typeof="Event">
             @yield('content')
 
