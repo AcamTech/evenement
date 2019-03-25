@@ -57,7 +57,7 @@
                     </span>
                 </a>
 
-                @yield('menu_body')
+                @include('Shared.Partials.Menu')
             </li>
         </ul>
     </div>

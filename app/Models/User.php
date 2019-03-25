@@ -187,4 +187,26 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany('App\Models\Attendee');
     }
+
+    public function isAdmin()
+    {
+        foreach ($this->roles as $role) {
+            if ($role->name === 'administrator') {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function isAttendee()
+    {
+        foreach ($this->roles as $role) {
+            if ($role->name === 'attendee') {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
