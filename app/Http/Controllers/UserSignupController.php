@@ -52,9 +52,15 @@ class UserSignupController extends Controller
             'terms_agreed' => $is_attendize ? 'required' : '',
         ]);
 
-        // gathering attendee role
-        $adminRole = Role::query()->where('name', 'Administrator')->first();
+        // gathering admin role
+        $adminRole = Role::query()->where('name', 'administrator')->first();
         if (is_null($adminRole)) {
+            return response('', 500)->json(['error' => 'Administrator role does not exist']);
+        }
+
+        // gathering attendee role
+        $attendeeRole = Role::query()->where('name', 'attendee')->first();
+        if (is_null($attendeeRole)) {
             return response('', 500)->json(['error' => 'Administrator role does not exist']);
         }
 
@@ -72,6 +78,7 @@ class UserSignupController extends Controller
         $user = User::create($user_data);
 
         $user->roles()->attach($adminRole->id);
+        $user->roles()->attach($attendeeRole->id);
 
         if ($is_attendize) {
             // TODO: Do this async?
