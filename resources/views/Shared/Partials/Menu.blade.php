@@ -3,7 +3,7 @@
         <li>
             <a href="{{route('showUserEvents')}}">
                 <i class="ico ico-search"></i>
-                Events Search
+                {{trans('Top.events_search')}}
             </a>
         </li>
         <li class="divider"></li>
