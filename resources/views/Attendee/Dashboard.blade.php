@@ -160,12 +160,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="event-listing-heading">{{ trans('Dashboard.search_results') }}</h1>
-                            @if(empty($event_groups))
+                            @if(empty($upcoming_event_groups))
                                 <div class="alert alert-info">
                                     @lang("Public_ViewOrganiser.no_events", ["panel_title"=>trans('Dashboard.search_results')])
                                 </div>
                             @else
-                                @foreach($event_groups as $eventGroup)
+                                @foreach($upcoming_event_groups as $eventGroup)
                                     <div class="row">
                                         @foreach($eventGroup as $event)
                                             <div class="col-md-6">
