@@ -30,6 +30,7 @@ module.exports = function (grunt) {
                     './public/vendor/bootstrap/dist/js/bootstrap.js',
                     './public/vendor/jquery-form/jquery.form.js',
                     './public/vendor/RRSSB/js/rrssb.js',
+                    './public/vendor/datetimepicker/dist/DateTimePicker.js',
                     './public/vendor/humane-js/humane.js',
                     './public/vendor/jquery.payment/lib/jquery.payment.js',
                     './public/assets/javascript/app-public.js',
