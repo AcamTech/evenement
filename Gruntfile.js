@@ -32,7 +32,8 @@ module.exports = function (grunt) {
                     './public/vendor/RRSSB/js/rrssb.js',
                     './public/vendor/humane-js/humane.js',
                     './public/vendor/jquery.payment/lib/jquery.payment.js',
-                    './public/assets/javascript/app-public.js'
+                    './public/assets/javascript/app-public.js',
+                    './public/assets/javascript/app.js'
                 ],
                 dest: './public/assets/javascript/frontend.js',
             },
