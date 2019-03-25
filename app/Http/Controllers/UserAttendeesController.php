@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Validator;
 
-class UserAttendeesController extends Controller
+class UserAttendeesController extends MyBaseController
 {
     /**
      * @return Factory|View
