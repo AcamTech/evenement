@@ -8,7 +8,7 @@
 
 @section('head')
     <style>
-        @foreach($organisers as $organiser)
+        @foreach($upcoming_event_organisers as $organiser)
             .event-list > li.event-item-{{$organiser->id}} > time {
             color: {{$organiser->page_text_color}};
             background-color: {{$organiser->page_header_bg_color}};

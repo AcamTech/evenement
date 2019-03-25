@@ -65,14 +65,14 @@ class UserEventsController extends MyBaseController
                 $query = $query->where('end_date', '<=', date('Y-m-d h:i:sA', strtotime($request->input('end_date'))));
             }
         }
-        $upcoming_events = $query->orderBy('start_date', 'ASC')->get();
+        $upcomingEvents = $query->orderBy('start_date', 'ASC')->get();
 
         if ($request->has('place_id') && !empty($request->input('place_id'))) {
             $rangeInMeters = $request->input('location_radius') * 1000;
             $inLat = $request->input('lat');
             $inLng = $request->input('lng');
-            $upcoming_events = array_filter(
-                iterator_to_array($upcoming_events),
+            $upcomingEvents = array_filter(
+                iterator_to_array($upcomingEvents),
                 function (Event $event) use ($rangeInMeters, $inLat, $inLng) {
                     if (empty($event->location_lat) || empty($event->location_long)) {
                         return false;
@@ -85,26 +85,14 @@ class UserEventsController extends MyBaseController
         }
 
         // resolving organisers
-        $organisers = [];
-        foreach ($upcoming_events as $event) {
-            $organisers[$event->organiser->id] = $event->organiser;
+        $upcomingEventOrganisers = [];
+        foreach ($upcomingEvents as $event) {
+            $upcomingEventOrganisers[$event->organiser->id] = $event->organiser;
         }
-
-        // putting js necessary for geocomplete querying
-        JavaScript::put([
-            'User'                => [
-                'full_name'    => Auth::user()->full_name,
-                'email'        => Auth::user()->email,
-                'is_confirmed' => Auth::user()->is_confirmed,
-            ],
-            'DateTimeFormat'      => config('attendize.default_date_picker_format'),
-            'DateSeparator'       => config('attendize.default_date_picker_seperator'),
-            'GenericErrorMessage' => trans("Controllers.whoops"),
-        ]);
 
         // grouping events into pairs
         $eventGroups = [];
-        foreach ($upcoming_events as $i => $event) {
+        foreach ($upcomingEvents as $i => $event) {
             $groupKey = ( $i - ( $i % 2 ) ) / 2;
             if (!array_key_exists($groupKey, $eventGroups)) {
                 $eventGroups[$groupKey] = [];
@@ -114,9 +102,9 @@ class UserEventsController extends MyBaseController
 
         // rendering it all out
         return view('Attendee.Dashboard', [
-            'upcoming_events' => $upcoming_events,
-            'event_groups' => $eventGroups,
-            'organisers' => $organisers
+            'upcoming_events' => $upcomingEvents,
+            'upcoming_event_groups' => $eventGroups,
+            'upcoming_event_organisers' => $upcomingEventOrganisers
         ]);
     }
 
