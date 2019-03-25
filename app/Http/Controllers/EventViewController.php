@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Mail;
 use Validator;
 
-class EventViewController extends Controller
+class EventViewController extends MyBaseController
 {
     /**
      * Show the homepage for an event
