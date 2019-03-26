@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Events\OrderCompletedEvent;
-use App\Models\Account;
 use App\Models\AccountPaymentGateway;
 use App\Models\Affiliate;
 use App\Models\Attendee;
@@ -11,23 +10,21 @@ use App\Models\Event;
 use App\Models\EventStats;
 use App\Models\Order;
 use App\Models\OrderItem;
-use App\Models\PaymentGateway;
 use App\Models\QuestionAnswer;
 use App\Models\ReservedTickets;
 use App\Models\Ticket;
 use App\Services\Order as OrderService;
+use Auth;
 use Carbon\Carbon;
 use Cookie;
 use DB;
 use Illuminate\Http\Request;
 use Log;
-use Omnipay;
 use PDF;
 use PhpSpec\Exception\Exception;
 use Validator;
-use Auth;
 
-class EventCheckoutController extends Controller
+class EventCheckoutController extends MyBaseController
 {
     /**
      * Is the checkout in an embedded Iframe?
@@ -42,6 +39,8 @@ class EventCheckoutController extends Controller
      */
     public function __construct(Request $request)
     {
+        parent::__construct();
+
         /*
          * See if the checkout is being called from an embedded iframe.
          */
