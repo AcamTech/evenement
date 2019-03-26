@@ -21,7 +21,7 @@
                 <li>
                     <a href="{{route('showOrganiserDashboard', ['organiser_id' => $org->id])}}">
                         <i class="ico ico-building"></i> &nbsp;
-                        @if($organiser && $org->id === $organiser->id)
+                        @if(isset($organiser) && $org->id === $organiser->id)
                             <strong>{{$org->name}}</strong>
                         @else
                             {{$org->name}}
