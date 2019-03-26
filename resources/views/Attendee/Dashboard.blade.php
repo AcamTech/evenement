@@ -124,7 +124,7 @@
                                     Request::input('start_date'),
                                     [
                                         'class' => 'form-control start hasDatepicker ',
-                                        'data-field' => 'datetime',
+                                        'data-field' => 'date',
                                         'data-startend' => 'start',
                                         'data-startendelem' => '.end',
                                         'readonly' => ''
@@ -139,7 +139,7 @@
                                     Request::input('end_date'),
                                     [
                                         'class' => 'form-control end hasDatepicker ',
-                                        'data-field' => 'datetime',
+                                        'data-field' => 'date',
                                         'data-startend' => 'end',
                                         'data-startendelem' => '.start',
                                         'readonly' => ''
