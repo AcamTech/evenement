@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Str;
+use Illuminate\Http\UploadedFile;
 use Image;
+use Str;
 
 class Organiser extends MyBaseModel implements AuthenticatableContract
 {
@@ -69,6 +69,16 @@ class Organiser extends MyBaseModel implements AuthenticatableContract
     public function events()
     {
         return $this->hasMany(\App\Models\Event::class);
+    }
+
+    /**
+     * The categories associated with the organizer.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function categories()
+    {
+        return $this->hasMany(\App\Models\Category::class);
     }
 
     /**

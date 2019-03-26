@@ -304,6 +304,10 @@ Route::group(
                     'as'   => 'showOrganiserEvents',
                     'uses' => 'OrganiserEventsController@showEvents',
                 ]);
+                Route::get('{organiser_id}/categories', [
+                    'as'   => 'showOrganiserCategories',
+                    'uses' => 'OrganiserCategoriesController@showCategories',
+                ]);
 
                 Route::get('{organiser_id}/customize', [
                     'as'   => 'showOrganiserCustomize',
