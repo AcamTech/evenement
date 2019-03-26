@@ -126,74 +126,6 @@ Route::group(
     });
 
     /*
-     * Public event page routes
-     */
-    Route::group(['prefix' => 'e'], function () {
-
-        /*
-         * Embedded events
-         */
-        Route::get('/{event_id}/embed', [
-            'as'   => 'showEmbeddedEventPage',
-            'uses' => 'EventViewEmbeddedController@showEmbeddedEvent',
-        ]);
-
-        Route::get('/{event_id}/calendar.ics', [
-            'as'   => 'downloadCalendarIcs',
-            'uses' => 'EventViewController@showCalendarIcs',
-        ]);
-
-        Route::get('/{event_id}/{event_slug?}', [
-            'as'   => 'showEventPage',
-            'uses' => 'EventViewController@showEventHome',
-        ]);
-
-        Route::post('/{event_id}/contact_organiser', [
-            'as'   => 'postContactOrganiser',
-            'uses' => 'EventViewController@postContactOrganiser',
-        ]);
-
-        Route::post('/{event_id}/show_hidden', [
-            'as'   => 'postShowHiddenTickets',
-            'uses' => 'EventViewController@postShowHiddenTickets',
-        ]);
-
-        /*
-         * Used for previewing designs in the backend. Doesn't log page views etc.
-         */
-        Route::get('/{event_id}/preview', [
-            'as'   => 'showEventPagePreview',
-            'uses' => 'EventViewController@showEventHomePreview',
-        ]);
-
-        Route::post('{event_id}/sign-up/', [
-            'as'   => 'postSignup',
-            'uses' => 'EventAttendeesController@postSignup',
-        ]);
-
-        Route::post('{event_id}/checkout/', [
-            'as'   => 'postValidateTickets',
-            'uses' => 'EventCheckoutController@postValidateTickets',
-        ]);
-
-        Route::get('{event_id}/checkout/create', [
-            'as'   => 'showEventCheckout',
-            'uses' => 'EventCheckoutController@showEventCheckout',
-        ]);
-
-        Route::get('{event_id}/checkout/success', [
-            'as'   => 'showEventCheckoutPaymentReturn',
-            'uses' => 'EventCheckoutController@showEventCheckoutPaymentReturn',
-        ]);
-
-
-        Route::post('{event_id}/checkout/create', [
-            'as'   => 'postCreateOrder',
-            'uses' => 'EventCheckoutController@postCreateOrder',
-        ]);
-    });
-
-    /*
      * Public view order routes
      */
     Route::get('order/{order_reference}', [
@@ -210,6 +142,74 @@ Route::group(
      * Backend routes
      */
     Route::group(['middleware' => ['auth', 'first.run']], function () {
+
+        /*
+         * Public event page routes
+         */
+        Route::group(['prefix' => 'e'], function () {
+
+            /*
+             * Embedded events
+             */
+            Route::get('/{event_id}/embed', [
+                'as'   => 'showEmbeddedEventPage',
+                'uses' => 'EventViewEmbeddedController@showEmbeddedEvent',
+            ]);
+
+            Route::get('/{event_id}/calendar.ics', [
+                'as'   => 'downloadCalendarIcs',
+                'uses' => 'EventViewController@showCalendarIcs',
+            ]);
+
+            Route::get('/{event_id}/{event_slug?}', [
+                'as'   => 'showEventPage',
+                'uses' => 'EventViewController@showEventHome',
+            ]);
+
+            Route::post('/{event_id}/contact_organiser', [
+                'as'   => 'postContactOrganiser',
+                'uses' => 'EventViewController@postContactOrganiser',
+            ]);
+
+            Route::post('/{event_id}/show_hidden', [
+                'as'   => 'postShowHiddenTickets',
+                'uses' => 'EventViewController@postShowHiddenTickets',
+            ]);
+
+            /*
+             * Used for previewing designs in the backend. Doesn't log page views etc.
+             */
+            Route::get('/{event_id}/preview', [
+                'as'   => 'showEventPagePreview',
+                'uses' => 'EventViewController@showEventHomePreview',
+            ]);
+
+            Route::post('{event_id}/sign-up/', [
+                'as'   => 'postSignup',
+                'uses' => 'EventAttendeesController@postSignup',
+            ]);
+
+            Route::post('{event_id}/checkout/', [
+                'as'   => 'postValidateTickets',
+                'uses' => 'EventCheckoutController@postValidateTickets',
+            ]);
+
+            Route::get('{event_id}/checkout/create', [
+                'as'   => 'showEventCheckout',
+                'uses' => 'EventCheckoutController@showEventCheckout',
+            ]);
+
+            Route::get('{event_id}/checkout/success', [
+                'as'   => 'showEventCheckoutPaymentReturn',
+                'uses' => 'EventCheckoutController@showEventCheckoutPaymentReturn',
+            ]);
+
+
+            Route::post('{event_id}/checkout/create', [
+                'as'   => 'postCreateOrder',
+                'uses' => 'EventCheckoutController@postCreateOrder',
+            ]);
+        });
 
         /*
          * Edit User
