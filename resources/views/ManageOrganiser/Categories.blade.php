@@ -27,7 +27,7 @@
                     data-href="{{route('showCreateCategory', ['organiser_id' => $organiser->id])}}"
                     class="btn btn-success loadModal"
                 >
-                    <i class="ico-plus"></i> @lang("Event.create_event")
+                    <i class="ico-plus"></i> @lang("Category.create_category")
                 </a>
             </div>
         </div>
