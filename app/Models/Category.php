@@ -37,4 +37,14 @@ class Category extends MyBaseModel
     {
         return $this->belongsTo(\App\Models\Organiser::class);
     }
+
+    /**
+     * The categories associated with the organizer.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function events()
+    {
+        return $this->hasMany(\App\Models\Event::class);
+    }
 }

@@ -38,5 +38,28 @@
 @stop
 
 @section('content')
-    <p>Hello, world!</p>
+    <div class="panel">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        @lang('Category.name')
+                    </th>
+                    <th>
+                        @lang('Category.category_events')
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($categories as $category)
+                    <tr>
+                        <td>{{{$category->name}}}</td>
+                        <td>{{count($category->events)}}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 @stop

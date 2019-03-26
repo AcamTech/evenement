@@ -178,6 +178,16 @@ class Event extends MyBaseModel
     }
 
     /**
+     * The organizer associated with the event.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(\App\Models\Category::class);
+    }
+
+    /**
      * Get the embed url.
      *
      * @return mixed
