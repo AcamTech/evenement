@@ -11,6 +11,7 @@ return array (
   'attendize_qrcode_check_in' => 'Attendize QRCode Check-in',
   'cancel_attendee_title' => 'Cancel :cancel',
   'cancel_description' => 'Cancelling Attendees will remove them from the attendee list.',
+  'cancel_description_attendee' => 'Cancelling will remove you from the attendee list.',
   'cancel_notify' => 'Notify :name their ticket has been cancelled.',
   'cancel_notify_organiser' => 'Notify event organiser your ticket has been cancelled.',
   'cancel_order_:ref' => 'Cancel Order: :ref',
