@@ -304,9 +304,18 @@ Route::group(
                     'as'   => 'showOrganiserEvents',
                     'uses' => 'OrganiserEventsController@showEvents',
                 ]);
+
                 Route::get('{organiser_id}/categories', [
                     'as'   => 'showOrganiserCategories',
                     'uses' => 'OrganiserCategoriesController@showCategories',
+                ]);
+                Route::get('{organiser_id}/categories/create', [
+                    'as'   => 'showCreateCategory',
+                    'uses' => 'OrganiserCategoriesController@showCreateCategory',
+                ]);
+                Route::post('{organiser_id}/categories/create', [
+                    'as'   => 'postCreateCategory',
+                    'uses' => 'OrganiserCategoriesController@postCreateCategory',
                 ]);
 
                 Route::get('{organiser_id}/customize', [

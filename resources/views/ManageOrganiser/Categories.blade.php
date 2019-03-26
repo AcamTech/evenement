@@ -13,13 +13,28 @@
     @include('ManageOrganiser.Partials.TopNav')
 @stop
 
-@section('head')
-    {!! HTML::script('https://maps.googleapis.com/maps/api/js?libraries=places&key='.env("GOOGLE_MAPS_GEOCODING_KEY")) !!}
-    {!! HTML::script('vendor/geocomplete/jquery.geocomplete.min.js')!!}
-@stop
-
 @section('menu')
     @include('ManageOrganiser.Partials.Sidebar')
+@stop
+
+@section('page_header')
+    <div class="col-md-9">
+        <div class="btn-toolbar">
+            <div class="btn-group btn-group-responsive">
+                <a
+                    href="#"
+                    data-modal-id="CreateCategory"
+                    data-href="{{route('showCreateCategory', ['organiser_id' => $organiser->id])}}"
+                    class="btn btn-success loadModal"
+                >
+                    <i class="ico-plus"></i> @lang("Event.create_event")
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        &nbsp;
+    </div>
 @stop
 
 @section('content')
