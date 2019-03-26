@@ -25,7 +25,7 @@ class Category extends MyBaseModel
      * @var array $messages
      */
     protected $messages = [
-        'title.required'                       => 'You must at least give a title for your event.',
+        'name.required'                       => 'You must at least give a title for your event.',
     ];
 
     /**

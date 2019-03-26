@@ -56,7 +56,7 @@ class OrganiserCategoriesController extends MyBaseController
     {
         $organiser = Organiser::scope()->findOrfail($organiser_id);
 
-        $category = Category::createNew();
+        $category = new Category();
 
         if (!$category->validate($request->all())) {
             return response()->json([
@@ -65,7 +65,7 @@ class OrganiserCategoriesController extends MyBaseController
             ]);
         }
 
-        $category->title = $request->input('title');
+        $category->name = $request->input('name');
         $category->organiser_id = $organiser->id;
 
         try {
