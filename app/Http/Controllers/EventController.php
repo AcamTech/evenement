@@ -26,8 +26,7 @@ class EventController extends MyBaseController
         $data = [
             'modal_id'     => $request->get('modal_id'),
             'categories' => $organiser->categories,
-            'organisers'   => Organiser::scope()->pluck('name', 'id'),
-            'organiser_id' => $request->get('organiser_id') ? $request->get('organiser_id') : false,
+            'organiser' => $organiser,
         ];
 
         return view('ManageOrganiser.Modals.CreateEvent', $data);
