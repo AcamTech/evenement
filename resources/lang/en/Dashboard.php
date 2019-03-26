@@ -32,7 +32,7 @@ return array (
     'reset' => 'Reset',
     'home' => 'Home',
     'search_events' => 'Search Events',
-    'your_events' => 'Your Events',
+    'my_events' => 'My Events',
     'not_attending' => 'You are not attending any events!',
     'view_event_details' => 'View Event Details',
     'organiser_dashboard' => 'Organiser Dashboard'

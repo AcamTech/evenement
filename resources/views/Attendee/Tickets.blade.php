@@ -3,18 +3,18 @@
 @section('title')
     @parent
     -
-    {{trans('Dashboard.your_events')}}
+    {{trans('Dashboard.my_events')}}
 @endsection
 
 @section('page_title')
     <div class="container">
-        {{trans('Dashboard.your_events')}}
+        {{trans('Dashboard.my_events')}}
     </div>
 @stop
 
 @section('content')
     <div class="container">
-        <h2>{{trans('Organiser.events')}}</h2>
+        <h2>{{trans('Dashboard.my_events')}}</h2>
         <!--Start Attendees table-->
         <div class="row">
             <div class="col-md-12">
