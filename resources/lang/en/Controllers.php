@@ -62,6 +62,7 @@ return array (
   'event_create_exception' => 'Whoops! There was a problem creating your event. Please try again.',
   'event_page_successfully_updated' => 'Event Page Successfully Updated.',
   'event_successfully_updated' => 'Event Successfully Updated!',
+  'category_create_exception' => 'Whoops! There was a problem creating your category. Please try again.',
   'fill_email_and_password' => 'Please fill in your email and password',
   'image_upload_error' => 'There was a problem uploading your image.',
   'invalid_ticket_error' => '"Invalid Ticket! Please try again."',

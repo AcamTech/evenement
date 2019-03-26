@@ -12,8 +12,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('title', trans("Category.category_title"), ['class' => 'control-label required']) !!}
-                                {!! Form::text('title', Input::old('title'), ['class' => 'form-control']) !!}
+                                {!! Form::label('name', trans("Category.category_name"), ['class' => 'control-label required']) !!}
+                                {!! Form::text('name', Input::old('name'), ['class' => 'form-control']) !!}
                             </div>
                         </div>
                     </div>

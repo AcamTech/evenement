@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Organiser;
 use Illuminate\Http\Request;
+use Log;
 
 class OrganiserCategoriesController extends MyBaseController
 {
@@ -54,9 +56,32 @@ class OrganiserCategoriesController extends MyBaseController
     {
         $organiser = Organiser::scope()->findOrfail($organiser_id);
 
+        $category = Category::createNew();
+
+        if (!$category->validate($request->all())) {
+            return response()->json([
+                'status'   => 'error',
+                'messages' => $category->errors()
+            ]);
+        }
+
+        $category->title = $request->input('title');
+        $category->organiser_id = $organiser->id;
+
+        try {
+            $category->save();
+        } catch (\Exception $e) {
+            Log::error($e);
+
+            return response()->json([
+                'status'   => 'error',
+                'messages' => trans("Controllers.category_create_exception"),
+            ]);
+        }
+
         return response()->json([
             'status'      => 'success',
-            'id'          => -1,
+            'id'          => $category->id,
             'redirectUrl' => route('showOrganiserCategories', [
                 'organiser_id'  => $organiser->id
             ]),
