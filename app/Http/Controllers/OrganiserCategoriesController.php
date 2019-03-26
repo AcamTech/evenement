@@ -47,10 +47,19 @@ class OrganiserCategoriesController extends MyBaseController
      * Create an event
      *
      * @param Request $request
+     * @param int $organiser_id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postCreateCategory(Request $request)
+    public function postCreateCategory(Request $request, $organiser_id)
     {
-        return response()->json(['m' => 'Hello, world!']);
+        $organiser = Organiser::scope()->findOrfail($organiser_id);
+
+        return response()->json([
+            'status'      => 'success',
+            'id'          => -1,
+            'redirectUrl' => route('showOrganiserCategories', [
+                'organiser_id'  => $organiser->id
+            ]),
+        ]);
     }
 }
