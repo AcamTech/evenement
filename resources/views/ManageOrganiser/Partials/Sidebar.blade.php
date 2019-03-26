@@ -23,7 +23,7 @@
                 </a>
             </li>
 
-            <li class="{{ Request::is('*categories*') ? 'active' : '' }}">
+            <li class="{{ Request::is('*customize*') ? 'active' : '' }}">
                 <a href="{{route('showOrganiserCustomize', ['organiser_id' => $organiser->id])}}">
                     <span class="figure"><i class="ico-cog"></i></span>
                     <span class="text">@lang("Organiser.customize")</span>
