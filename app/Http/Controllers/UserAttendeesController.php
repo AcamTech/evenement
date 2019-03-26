@@ -9,8 +9,8 @@ use Auth;
 use Hash;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Mail;
 use Validator;
 
 class UserAttendeesController extends MyBaseController
