@@ -15,7 +15,7 @@
                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                     <span class="meta">
                         <span class="text ">
-                            @yield('menu_title')
+                            {{Auth::user()->first_name}} {{Auth::user()->last_name}}
                         </span>
                         <span class="arrow"></span>
                     </span>
