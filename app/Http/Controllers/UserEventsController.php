@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Jobs\GenerateTicket;
 use App\Models\Attendee;
+use App\Models\Category;
 use App\Models\Event;
 use Auth;
 use Carbon\Carbon;
+use Config;
 use Hash;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use JavaScript;
-use Validator;
-use Config;
 use Log;
+use Validator;
 
 /**
  * Calculates the great-circle distance between two points, with
@@ -100,11 +101,15 @@ class UserEventsController extends MyBaseController
             $eventGroups[$groupKey][] = $event;
         }
 
+        // gathering categories
+        $categories = Category::get()->pluck('name', 'id');
+
         // rendering it all out
         return view('Attendee.Dashboard', [
             'upcoming_events' => $upcomingEvents,
             'upcoming_event_groups' => $eventGroups,
-            'upcoming_event_organisers' => $upcomingEventOrganisers
+            'upcoming_event_organisers' => $upcomingEventOrganisers,
+            'categories' => $categories
         ]);
     }
 

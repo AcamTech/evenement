@@ -61,10 +61,16 @@
                 <form action="{{route('postUserEvents')}}" method="post" class="gf address-manual">
                     @csrf
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                             <div class="form-group">
                                 {!! Form::label('keyword', trans('Dashboard.keyword'), ['class' => 'control-label ']) !!}
                                 {!! Form::text('keyword', Request::input('keyword'), ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {!! Form::label('category_id', trans("Event.event_category"), array('class'=>'control-label required')) !!}
+                                {!! Form::select('category_id', $categories, Input::old('category_id'), ['class' => 'form-control']) !!}
                             </div>
                         </div>
                     </div>
