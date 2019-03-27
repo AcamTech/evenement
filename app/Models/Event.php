@@ -22,15 +22,16 @@ class Event extends MyBaseModel
     {
         $format = config('attendize.default_datetime_format');
         return [
-                'title'               => 'required',
-                'description'         => 'required',
-                'location_venue_name' => 'required_without:venue_name_full',
-                'venue_name_full'     => 'required_without:location_venue_name',
-                'start_date'          => 'required|date_format:"'.$format.'"',
-                'end_date'            => 'required|date_format:"'.$format.'"',
-                'organiser_name'      => 'required_without:organiser_id',
-                'event_image'         => 'mimes:jpeg,jpg,png|max:3000',
-            ];
+            'title'               => 'required',
+            'description'         => 'required',
+            'location_venue_name' => 'required_without:venue_name_full',
+            'venue_name_full'     => 'required_without:location_venue_name',
+            'start_date'          => 'required|date_format:"'.$format.'"',
+            'end_date'            => 'required|date_format:"'.$format.'"',
+            'organiser_name'      => 'required_without:organiser_id',
+            'event_image'         => 'mimes:jpeg,jpg,png|max:3000',
+            'category_id' => 'required'
+        ];
     }
 
     /**

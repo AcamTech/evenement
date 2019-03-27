@@ -20,8 +20,8 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('category', trans("Event.event_category"), array('class'=>'control-label required')) !!}
-                            {!! Form::select('category', $categories, Input::old('category'), ['class' => 'form-control']) !!}
+                            {!! Form::label('category_id', trans("Event.event_category"), array('class'=>'control-label required')) !!}
+                            {!! Form::select('category_id', $categories, Input::old('category_id'), ['class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group custom-theme">
