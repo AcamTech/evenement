@@ -65,6 +65,12 @@ class UserEventsController extends MyBaseController
             if ($request->has('end_date') && !empty($request->input('end_date'))) {
                 $query = $query->where('end_date', '<=', date('Y-m-d h:i:sA', strtotime($request->input('end_date'))));
             }
+            if ($request->has('category_id')) {
+                $categoryId = $request->input('category_id');
+                if (!empty($categoryId) && $categoryId > -1) {
+                    $query = $query->where('category_id', '=', $categoryId);
+                }
+            }
         }
         $upcomingEvents = $query->orderBy('start_date', 'ASC')->get();
 

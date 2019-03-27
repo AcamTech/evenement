@@ -70,7 +70,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 {!! Form::label('category_id', trans("Event.event_category"), array('class'=>'control-label required')) !!}
-                                {!! Form::select('category_id', $categories, Input::old('category_id'), ['class' => 'form-control']) !!}
+                                {!! Form::select('category_id', $categories, Request::input('category_id'), ['class' => 'form-control']) !!}
                             </div>
                         </div>
                     </div>
