@@ -25,7 +25,7 @@ class EventController extends MyBaseController
 
         $data = [
             'modal_id'     => $request->get('modal_id'),
-            'categories' => $organiser->categories,
+            'categories' => $organiser->categories->pluck('name', 'id'),
             'organiser' => $organiser,
         ];
 

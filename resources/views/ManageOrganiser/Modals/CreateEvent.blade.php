@@ -19,6 +19,11 @@
                             {!!  Form::text('title', Input::old('title'),array('class'=>'form-control','placeholder'=>trans("Event.event_title_placeholder", ["name"=>Auth::user()->first_name]) ))  !!}
                         </div>
 
+                        <div class="form-group">
+                            {!! Form::label('category', trans("Event.event_category"), array('class'=>'control-label required')) !!}
+                            {!! Form::select('category', $categories, Input::old('category'), ['class' => 'form-control']) !!}
+                        </div>
+
                         <div class="form-group custom-theme">
                             {!! Form::label('description', trans("Event.event_description"), array('class'=>'control-label required')) !!}
                             {!!  Form::textarea('description', Input::old('description'),
