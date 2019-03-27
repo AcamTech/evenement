@@ -8,6 +8,11 @@ module.exports = function (grunt) {
                 options: {
                     compress: true,
                     javascriptEnabled: true,
+                    sourceMap: true,
+                    sourceMapFilename: "./public/assets/stylesheet/css-map.css.map",
+                    sourceMapURL: "/assets/stylesheet/css-map.css.map",
+                    sourceMapBasepath: "public",
+                    sourceMapRootPath: "/"
                 },
                 files: {
                     "./public/assets/stylesheet/application.css": "./public/assets/stylesheet/application.less",
