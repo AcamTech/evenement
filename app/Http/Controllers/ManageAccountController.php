@@ -6,6 +6,7 @@ use App\Models\Account;
 use App\Models\AccountPaymentGateway;
 use App\Models\Currency;
 use App\Models\PaymentGateway;
+use App\Models\Role;
 use App\Models\Timezone;
 use App\Models\User;
 use Auth;
@@ -190,7 +191,23 @@ class ManageAccountController extends MyBaseController
         $user->password = Hash::make($temp_password);
         $user->account_id = Auth::user()->account_id;
 
+
+        // gathering admin role
+        $adminRole = Role::query()->where('name', 'administrator')->first();
+        if (is_null($adminRole)) {
+            return response('', 500)->json(['error' => 'Administrator role does not exist']);
+        }
+
+        // gathering attendee role
+        $attendeeRole = Role::query()->where('name', 'attendee')->first();
+        if (is_null($attendeeRole)) {
+            return response('', 500)->json(['error' => 'Administrator role does not exist']);
+        }
+
         $user->save();
+
+        $user->roles()->attach($adminRole->id);
+        $user->roles()->attach($attendeeRole->id);
 
         $data = [
             'user'          => $user,
