@@ -24,7 +24,11 @@
                     @foreach($event_attendees as $eventId => $eventData)
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>{{$eventData['event']->title}}</h4>
+                                @if($eventData['event']->category)
+                                    <h4>{{$eventData['event']->title}} ({{$eventData['event']->category->name}})</h4>
+                                @else
+                                    <h4>{{$eventData['event']->title}}</h4>
+                                @endif
                             </div>
                             <div class="col-md-6">
                                 <h4 class="pull-right">
