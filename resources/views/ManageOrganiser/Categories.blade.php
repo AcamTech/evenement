@@ -93,4 +93,47 @@
             </table>
         </div>
     </div>
+
+    <div class="deleted-panel">
+        <h4>@lang('Category.deleted_categories')</h4>
+        <table class="table table-sm">
+            <thead class="thead-dark">
+            <tr>
+                <th>
+                    @lang('Category.name')
+                </th>
+                <th>
+                    @lang('Category.category_events')
+                </th>
+                <th>
+                    @lang('Category.actions')
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($deletedCategories as $category)
+                <tr class="table-light">
+                    <td>{{{$category->name}}}</td>
+                    <td>{{count($category->events)}}</td>
+                    <td>
+                        <div class="btn-group" role="group" >
+                            <form style="float:left;" action="{{ route('undeleteCategory', [
+                                'organiser_id' => $organiser->id,
+                                'category_id' => $category->id
+                            ])
+
+                            }}" method="POST">
+                                @csrf
+
+                                <button type="submit" class="btn btn-light"  >
+                                    <i class="ico-eject"></i> @lang('Category.undelete')
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 @stop

@@ -322,6 +322,10 @@ Route::group(
                     'as'   => 'deleteCategory',
                     'uses' => 'OrganiserCategoriesController@deleteCategory',
                 ]);
+                Route::post('{organiser_id}/category/undelete/{category_id}', [
+                    'as'   => 'undeleteCategory',
+                    'uses' => 'OrganiserCategoriesController@undeleteCategory',
+                ]);
                 Route::get('{organiser_id}/categories/edit/{category_id}', [
                     'as'   => 'showEditCategory',
                     'uses' => 'OrganiserCategoriesController@showEditCategory',

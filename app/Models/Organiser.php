@@ -138,6 +138,17 @@ class Organiser extends MyBaseModel implements AuthenticatableContract
         return $this->events->sum('sales_volume');
     }
 
+
+    /**
+     * Get any trashed categories (excludes non-trashed)
+     *
+     * @return mixed|number
+     */
+    public function getTrashedCategories()
+    {
+        return $this->categories()->onlyTrashed()->get();
+    }
+
     /**
      * TODO:implement DailyStats method
      */

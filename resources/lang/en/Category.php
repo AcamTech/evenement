@@ -12,5 +12,7 @@ return array (
     'delete' => 'Delete',
     'rename' => 'Rename',
     'edit_category' => 'Edit Category',
-    'actions' => 'Actions'
+    'actions' => 'Actions',
+    'deleted_categories' => 'Deleted categories',
+    'undelete' => 'Undelete'
 );
