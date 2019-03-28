@@ -191,6 +191,11 @@
                                                                 <a href="{{$event->event_url }}">{{ $event->title }}</a>
                                                             </h2>
                                                             <p class="desc ellipsis">{{ $event->venue_name }}</p>
+
+                                                            @if($event->category)
+                                                            <p class="desc ellipsis">{{ $event->category->name }}</p>
+                                                            @endif
+
                                                             <ul>
                                                                 <li style="width:50%;"><a href="{{$event->event_url }}">@lang("Public_ViewOrganiser.tickets")</a></li>
                                                                 <li style="width:50%;"><a href="{{$event->event_url }}">@lang("Public_ViewOrganiser.information")</a></li>
