@@ -2,7 +2,7 @@
 
 @section('page_title')
     <div class="container">
-        {{Auth::user()->first_name}} {{Auth::user()->last_name}} Dashboard
+        {{Auth::user()->first_name}} {{Auth::user()->last_name}} &#8594; Dashboard
     </div>
 @stop
 
