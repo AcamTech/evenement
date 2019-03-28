@@ -22,6 +22,12 @@
                                         ))  !!}
         </div>
 
+
+        <div class="form-group">
+            {!! Form::label('category_id', trans("Event.event_category"), array('class'=>'control-label required')) !!}
+            {!! Form::select('category_id', $categories, Input::old('category_id'), ['class' => 'form-control']) !!}
+        </div>
+
         <div class="form-group">
            {!! Form::label('description', trans("Event.event_description"), array('class'=>'control-label')) !!}
             {!!  Form::textarea('description', Input::old('description'),

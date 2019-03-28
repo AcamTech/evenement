@@ -206,7 +206,7 @@
             <!-- tab content -->
             <div class="tab-content panel">
                 <div class="tab-pane {{($tab == 'general' || !$tab) ? 'active' : ''}}" id="general">
-                    @include('ManageEvent.Partials.EditEventForm', ['event'=>$event, 'organisers'=>\Auth::user()->account->organisers])
+                    @include('ManageEvent.Partials.EditEventForm', ['event'=>$event, 'categories' => $categories])
                 </div>
 
                 <div class="tab-pane {{$tab == 'affiliates' ? 'active' : ''}}" id="affiliates">

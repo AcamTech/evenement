@@ -19,10 +19,14 @@ class EventCustomizeController extends MyBaseController
      */
     public function showCustomize($event_id = '', $tab = '')
     {
+        $event = Event::findOrFail($event_id);
+        $categories = $event->organiser->categories()->withTrashed()->get()->pluck('name', 'id');
+
         $data = $this->getEventViewData($event_id, [
             'available_bg_images'        => $this->getAvailableBackgroundImages(),
             'available_bg_images_thumbs' => $this->getAvailableBackgroundImagesThumbs(),
             'tab'                        => $tab,
+            'categories'                 => $categories
         ]);
 
         return view('ManageEvent.Customize', $data);
