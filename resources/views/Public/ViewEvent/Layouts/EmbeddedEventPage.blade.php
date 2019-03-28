@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>{{{$event->title}}} - @lang('ISED')</title>
+        <title>{{{$event->title}}} - @lang('Basic.ISED')</title>
 
 
         <meta charset="utf-8" />

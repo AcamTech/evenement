@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head> <title>{{{$event->title}}} - @lang('ISED')</title>
+    <head> <title>{{{$event->title}}} - @lang('Basic.ISED')</title>
 
         @include('Shared.Layouts.ViewJavascript')
 
