@@ -20,7 +20,7 @@
                 </div>
                 <div class="modal-footer">
                     {!! Form::button(trans("basic.cancel"), ['class' => 'btn modal-close btn-danger', 'data-dismiss' => 'modal']) !!}
-                    {!! Form::submit(trans("Category.create_category"), ['class' => "btn btn-success"]) !!}
+                    {!! Form::submit(trans("Category.edit_category"), ['class' => "btn btn-success"]) !!}
                 </div>
             </div>
         </div>
