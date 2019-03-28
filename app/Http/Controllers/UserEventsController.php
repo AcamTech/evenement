@@ -59,11 +59,49 @@ class UserEventsController extends MyBaseController
             if ($request->has('keyword') && !empty($request->input('keyword'))) {
                 $query = $query->where('title', 'like', '%'. $request->input('keyword'). '%');
             }
-            if ($request->has('start_date') && !empty($request->input('start_date'))) {
-                $query = $query->where('start_date', '>=', date('Y-m-d h:i:sA', strtotime($request->input('start_date'))));
-            }
-            if ($request->has('end_date') && !empty($request->input('end_date'))) {
-                $query = $query->where('end_date', '<=', date('Y-m-d h:i:sA', strtotime($request->input('end_date'))));
+            $startDate = $request->has('start_date') && !empty($request->input('start_date'))
+                ? date('Y-m-d h:i:sA', strtotime($request->input('start_date')))
+                : null;
+            $endDate = $request->has('end_date') && !empty($request->input('end_date'))
+                ? date('Y-m-d h:i:sA', strtotime($request->input('end_date')))
+                : null;
+            if (!is_null($startDate) || !is_null($endDate)) {
+                if (!is_null($startDate) && !is_null($endDate)) {
+                    $query = $query->where(function ($query) use ($startDate, $endDate) {
+                        $query
+                            ->where(function ($query) use ($startDate) {
+                                $query->where('start_date', '<=', $startDate)
+                                    ->where('end_date', '>=', $startDate);
+                            })
+                            ->orWhere(function ($query) use ($endDate) {
+                                $query->where('start_date', '<=', $endDate)
+                                    ->where('end_date', '>=', $endDate);
+                            })
+                            ->orWhere(function ($query) use ($startDate, $endDate) {
+                                $query->where('start_date', '>=', $startDate)
+                                    ->where('end_date', '<=', $endDate);
+                            });
+                    });
+                } else {
+                    if (!is_null($startDate)) {
+                        $query = $query->where(function ($query) use ($startDate) {
+                            $query->where(function ($query) use ($startDate) {
+                                    $query->where('start_date', '<=', $startDate)
+                                        ->where('end_date', '>=', $startDate);
+                                })
+                                ->orWhere('start_date', '>=', $startDate);
+                        });
+                    }
+                    if (!is_null($endDate)) {
+                        $query = $query->where(function ($query) use ($endDate) {
+                            $query->where(function ($query) use ($endDate) {
+                                    $query->where('start_date', '<=', $endDate)
+                                        ->where('end_date', '>=', $endDate);
+                                })
+                                ->orWhere('end_date', '<=', $endDate);
+                        });
+                    }
+                }
             }
             if ($request->has('category_id')) {
                 $categoryId = $request->input('category_id');
