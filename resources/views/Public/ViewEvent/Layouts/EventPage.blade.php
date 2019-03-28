@@ -90,6 +90,7 @@
         <script>if($('#countdown')) {setCountdown($('#countdown'), {{$secondsToExpire}});}</script>
         @endif
 
+        @include('Shared.Partials.Footer')
         @include('Shared.Partials.GlobalFooterJS')
     </body>
 </html>
