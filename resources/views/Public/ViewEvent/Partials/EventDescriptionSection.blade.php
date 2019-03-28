@@ -1,7 +1,11 @@
 <section id="details" class="container">
     <div class="row">
         <h1 class="section_head">
-            @lang("Public_ViewEvent.event_details")
+            @if(!$event->category)
+                @lang("Public_ViewEvent.event_details")
+            @else
+                {{$event->category->name}} Event
+            @endif
         </h1>
     </div>
     <div class="row">
