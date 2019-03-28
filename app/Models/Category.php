@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Str;
 use URL;
 
 class Category extends MyBaseModel
 {
+    use SoftDeletes;
+
     /**
      * The validation rules.
      *
