@@ -24,5 +24,15 @@
                 @include('Shared.Partials.Menu')
             </li>
         </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-button">
+                @if(Lang::locale() === 'en')
+                    <a href="/fr/{{Request::path()}}">FR</a>
+                @elseif(Lang::locale() === 'fr')
+                    <a href="/{{sprintf('en/%s', substr(Request::path(), strlen('fr/')))}}">EN</a>
+                @endif
+            </li>
+        </ul>
     </div>
 </header>
