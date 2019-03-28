@@ -94,6 +94,7 @@
         </div>
     </div>
 
+    @if (count($deletedCategories) > 0)
     <div class="deleted-panel">
         <h4>@lang('Category.deleted_categories')</h4>
         <table class="table table-sm">
@@ -136,4 +137,5 @@
             </tbody>
         </table>
     </div>
+    @endif
 @stop
