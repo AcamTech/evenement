@@ -318,6 +318,19 @@ Route::group(
                     'uses' => 'OrganiserCategoriesController@postCreateCategory',
                 ]);
 
+                Route::delete('{organiser_id}/category/{category_id}', [
+                    'as'   => 'deleteCategory',
+                    'uses' => 'OrganiserCategoriesController@deleteCategory',
+                ]);
+                Route::get('{organiser_id}/categories/edit/{category_id}', [
+                    'as'   => 'showEditCategory',
+                    'uses' => 'OrganiserCategoriesController@showEditCategory',
+                ]);
+                Route::post('{organiser_id}/categories/edit/{category_id}', [
+                    'as'   => 'postEditCategory',
+                    'uses' => 'OrganiserCategoriesController@postEditCategory',
+                ]);
+
                 Route::get('{organiser_id}/customize', [
                     'as'   => 'showOrganiserCustomize',
                     'uses' => 'OrganiserCustomizeController@showCustomize',
