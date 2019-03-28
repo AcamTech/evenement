@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head> <title>{{{$organiser->name}}} - @lang('ISED')</title>
+    <head> <title>{{{$organiser->name}}} - @lang('Basic.ISED')</title>
 
 
         <meta charset="utf-8" />
