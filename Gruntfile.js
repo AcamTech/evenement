@@ -79,6 +79,10 @@ module.exports = function (grunt) {
             },
         },
         watch: {
+            less:{
+                files: './public/assets/stylesheet/**/*.less',
+                tasks: ['less:development'],
+            },
             scripts: {
                 files: ['./public/assets/**/*.js'],
                 tasks: ['default'],
