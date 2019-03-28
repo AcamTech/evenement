@@ -87,6 +87,16 @@
 </script>
 <!--/JS-->
 @yield('foot')
+<div class="landscape">
+    <div class="container footer-nav">
+        <p>Hello, world!</p>
+        <p>Hello, world!</p>
+        <p>Hello, world!</p>
+        <p>Hello, world!</p>
+        <p>Hello, world!</p>
+        <p>Hello, world!</p>
+    </div>
+</div>
 
 @include('Shared.Partials.GlobalFooterJS')
 
