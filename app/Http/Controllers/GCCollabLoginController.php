@@ -99,16 +99,17 @@ class GCCollabLoginController extends Controller
         $gcCollabName = $userInfo['name'];
         $gcCollabUsername = $userInfo['nickname'];
 
+        // resolving first-name and last-name
+        $firstName = $gcCollabName;
+        $lastName = '';
+        if (strpos($gcCollabName, ' ') > -1) {
+            $nameParts = explode(' ', $gcCollabName, 2);
+            $firstName = $nameParts[0];
+            $lastName = $nameParts[1];
+        }
+
         $foundUser = User::query()->where('email', $gcCollabEmail)->first();
         if (is_null($foundUser)) {
-            $firstName = $gcCollabName;
-            $lastName = '';
-            if (strpos($gcCollabName, ' ') > -1) {
-                $nameParts = explode(' ', $gcCollabName, 2);
-                $firstName = $nameParts[0];
-                $lastName = $nameParts[1];
-            }
-
             $foundUser = User::create([
                 'email' => $gcCollabEmail,
                 'first_name' => $firstName,
@@ -121,8 +122,10 @@ class GCCollabLoginController extends Controller
             $foundUser->save();
 
             $foundUser->roles()->attach($attendeeRole->id);
-
-            session()->flash('message', 'Success! You can now login.');
+        } else {
+            $foundUser->first_name = $firstName;
+            $foundUser->last_name = $lastName;
+            $foundUser->save();
         }
         Auth::login($foundUser, true);
 
