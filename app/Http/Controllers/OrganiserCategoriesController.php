@@ -23,6 +23,7 @@ class OrganiserCategoriesController extends MyBaseController
 
         $data = [
             'categories' => $organiser->categories,
+            'deletedCategories' => $organiser->getTrashedCategories(),
             'organiser' => $organiser,
         ];
 
@@ -112,6 +113,28 @@ class OrganiserCategoriesController extends MyBaseController
                 // this is just a soft delete, since there are events that are using this category
                 $category->destroy($category_id);
             }
+        }
+
+        return redirect()->route('showOrganiserCategories', $organiser->id);
+    }
+
+
+
+    /**
+     * UnDeletes a category that was previously soft-deleted
+     *
+     * @param Request $request
+     * @param $organiser_id
+     * @param $category_id
+     * @return Redirector
+     */
+    public function undeleteCategory(Request $request, $organiser_id, $category_id)
+    {
+        $organiser = Organiser::scope()->findOrfail($organiser_id);
+        $category = Category::onlyTrashed()->findOrFail($category_id);
+
+        if ($category->belongsTo($organiser)){
+            $category->restore();
         }
 
         return redirect()->route('showOrganiserCategories', $organiser->id);

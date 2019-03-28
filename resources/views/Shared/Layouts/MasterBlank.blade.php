@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ Lang::locale() }}">
 <head>
-    <!--
-              _   _                 _ _
-         /\  | | | |               | (_)
-        /  \ | |_| |_ ___ _ __   __| |_ _______   ___ ___  _ __ ___
-       / /\ \| __| __/ _ \ '_ \ / _` | |_  / _ \ / __/ _ \| '_ ` _ \
-      / ____ \ |_| ||  __/ | | | (_| | |/ /  __/| (_| (_) | | | | | |
-     /_/    \_\__|\__\___|_| |_|\__,_|_/___\___(_)___\___/|_| |_| |_|
-
-    -->
     <title>
         @section('title')
-            Attendize -
+            @lang('basic.ISED') -
         @show
     </title>
 
@@ -22,11 +13,11 @@
 @include('Shared.Partials.GlobalMeta')
 <!--/Meta-->
 
-    <!--JS-->
+<!--JS-->
 {!! HTML::script(config('attendize.cdn_url_static_assets').'/vendor/jquery/dist/jquery.min.js') !!}
 <!--/JS-->
 
-    <!--Style-->
+<!--Style-->
 {!! HTML::style(config('attendize.cdn_url_static_assets').'/assets/stylesheet/application.css') !!}
 <!--/Style-->
 
