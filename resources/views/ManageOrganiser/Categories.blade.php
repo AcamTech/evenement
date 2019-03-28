@@ -49,6 +49,9 @@
                     <th>
                         @lang('Category.category_events')
                     </th>
+                    <th>
+                        @lang('Category.actions')
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -56,6 +59,34 @@
                     <tr>
                         <td>{{{$category->name}}}</td>
                         <td>{{count($category->events)}}</td>
+                        <td>
+                            <div class="btn-group" role="group" >
+                                <form style="float:left;" action="{{ route('deleteCategory', [
+                                    'organiser_id' => $organiser->id,
+                                    'category_id' => $category->id
+                                ])
+
+                                }}" method="POST">
+                                    @csrf
+                                    {{ method_field('DELETE') }}
+
+                                    <button type="submit" class="btn btn-light" onclick="return confirm('@lang('Category.delete_confirm', ['name' => $category->name])')" >
+                                        <i class="ico-trash"></i> @lang('Category.delete')
+                                    </button>
+                                </form>
+                                <a
+                                        href="#"
+                                        data-modal-id="EditCategory"
+                                        data-href="{{route('showEditCategory', [
+                                            'organiser_id' => $organiser->id,
+                                            'category_id' => $category->id
+                                        ])}}"
+                                        class="btn btn-light loadModal"
+                                >
+                                    <i class="ico-pencil"></i> @lang("Category.rename")
+                                </a>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
