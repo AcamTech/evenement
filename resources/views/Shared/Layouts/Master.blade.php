@@ -1,5 +1,5 @@
 @extends('Shared.Layouts.MasterBlank')
 
 @section('sidebar-gate')
-    has-sidebar
+    with-sidebar
 @endsection
