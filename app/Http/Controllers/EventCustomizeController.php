@@ -266,14 +266,23 @@ class EventCustomizeController extends MyBaseController
             ]);
         }
 
-        if ($request->get('bg_image_path_custom') && $request->get('bg_type') == 'image') {
-            $event->bg_image_path = $request->get('bg_image_path_custom');
-            $event->bg_type = 'image';
-        }
+        switch ($request->get('bg_type')) {
+            case 'image':
+                $event->bg_image_path = $request->get('bg_image_path_custom');
+                $event->bg_type = 'image';
 
-        if ($request->get('bg_color') && $request->get('bg_type') == 'color') {
-            $event->bg_color = $request->get('bg_color');
-            $event->bg_type = 'color';
+                break;
+            case 'color':
+                $event->bg_color = $request->get('bg_color');
+                $event->bg_type = 'color';
+
+                break;
+            case 'blank':
+                $event->bg_type = 'blank';
+
+                break;
+            default:
+                break;
         }
 
         /*

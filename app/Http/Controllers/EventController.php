@@ -94,8 +94,8 @@ class EventController extends MyBaseController
         /*
          * Set a default background for the event
          */
-        $event->bg_type = 'image';
-        $event->bg_image_path = config('attendize.event_default_bg_image');
+        $event->bg_type = 'blank';
+//        $event->bg_image_path = config('attendize.event_default_bg_image');
 
 
         if ($request->get('organiser_name')) {

@@ -343,6 +343,32 @@
 
                             <div class="panel-group" id="bgOptions">
 
+                                <div class="panel panel-default" data-type="blank">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a
+                                                href="#bgBlank"
+                                                data-toggle="collapse"
+                                                data-parent="#bgOptions"
+                                                class="{{$event->bg_type == 'blank' ? '' : 'collapsed'}}"
+                                            >
+                                                <span class="arrow mr5"></span> Blank
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div
+                                        id="bgBlank"
+                                        class="panel-collapse {{ $event->bg_type == 'blank' ? 'in' : 'collapse'  }}"
+                                    >
+                                        <div class="panel-body">
+                                            <label for="bg_blank">
+                                                {!! Form::checkbox('bg_blank', $event->bg_type == 'blank', ['class' => 'colorpicker form-control']) !!}
+                                                Plain background
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="panel panel-default" data-type="color">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
