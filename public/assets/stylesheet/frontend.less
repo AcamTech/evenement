@@ -7,6 +7,22 @@
 @import "less/layout/blank-format.less";
 /*END LAYOUT*/
 
+.no-sidebar {
+  .navbar-brand .application-logo {
+    display: none;
+  }
+
+  #header.navbar {
+    > .navbar-header > .navbar-brand {
+      width: 372px;
+    }
+
+    > .navbar-toolbar {
+      margin-left: 382px;
+    }
+  }
+}
+
 /*BEGIN UI*/
 @import 'icons/iconfont/style.css';
 @import "less/ui/helper.less";

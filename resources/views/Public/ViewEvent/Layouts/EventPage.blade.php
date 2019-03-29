@@ -67,7 +67,7 @@
         @endif
 
     </head>
-    <body class="attendize {{$event->bg_type == 'blank' ? 'blank-format' : ''}}">
+    <body class="attendize {{$event->bg_type == 'blank' ? 'blank-format' : ''}} no-sidebar">
         @include('Shared.Partials.Topbar')
         <div id="event_page_wrap" vocab="http://schema.org/" typeof="Event">
             @yield('content')
