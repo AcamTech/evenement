@@ -1,7 +1,7 @@
 <header id="header" class="navbar">
 
     <div class="navbar-header">
-        <a class="navbar-brand" href="javascript:void(0);">
+        <a class="navbar-brand" href="{{route('showUserHome')}}">
             <img
                 style="width: auto; height: 34px; margin-left: 15px;"
                 class="logo"
