@@ -146,10 +146,8 @@ class UserEventsController extends MyBaseController
         }
 
         // gathering categories
-        $categories = array_merge(
-            ['-1' => trans('All')],
-            iterator_to_array(Category::get()->pluck('name', 'id'))
-        );
+        $categories = Category::get()->pluck('name', 'id');
+        $categories->prepend("All", "-1");
 
         // rendering it all out
         return view('Attendee.Dashboard', [
