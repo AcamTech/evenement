@@ -1,8 +1,13 @@
 <header id="header" class="navbar">
 
     <div class="navbar-header">
-        <a class="navbar-brand" href="javascript:void(0);">
-            <img style="width: 150px;" class="logo" alt="Attendize" src="{{asset('assets/images/logo-light.png')}}"/>
+        <a class="navbar-brand" href="{{route('showUserHome')}}">
+            <img
+                style="width: 362px; height: 34px; margin-left: 15px;"
+                class="logo"
+                alt="ISED Event Manager"
+                src="{{asset('assets/images/sig-blk-en.svg')}}"
+            />
         </a>
     </div>
 
