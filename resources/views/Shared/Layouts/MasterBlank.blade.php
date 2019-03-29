@@ -23,7 +23,7 @@
 
     @yield('head')
 </head>
-<body class="attendize with-sidebar">
+<body class="attendize @yield('sidebar-gate')">
 @yield('pre_header')
 @include('Shared.Partials.Topbar')
 
