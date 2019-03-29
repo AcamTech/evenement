@@ -11,7 +11,7 @@ module.exports = function (grunt) {
                     sourceMap: true,
                     sourceMapFilename: "./public/assets/stylesheet/css-map.css.map",
                     sourceMapURL: "/assets/stylesheet/css-map.css.map",
-                    sourceMapBasepath: "public",
+                    sourceMapBasepath: "public/assets/stylesheet", //  path which should be removed from the output paths
                     sourceMapRootPath: "/"
                 },
                 files: {
