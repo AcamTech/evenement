@@ -9,10 +9,11 @@ module.exports = function (grunt) {
                     compress: true,
                     javascriptEnabled: true,
                     sourceMap: true,
-                    sourceMapFilename: "./public/assets/stylesheet/css-map.css.map",
-                    sourceMapURL: "/assets/stylesheet/css-map.css.map",
-                    sourceMapBasepath: "public/assets/stylesheet", //  path which should be removed from the output paths
-                    sourceMapRootPath: "/"
+                    sourceMapRootPath: "/",
+                    sourceMapBasepath: function (f) {
+                        this.sourceMapURL = "/assets/stylesheet/" + this.sourceMapFilename.substr(this.sourceMapFilename.lastIndexOf('/') + 1);
+                        return "public/assets/stylesheet/";
+                    },
                 },
                 files: {
                     "./public/assets/stylesheet/application.css": "./public/assets/stylesheet/application.less",

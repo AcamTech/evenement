@@ -81,6 +81,10 @@
             > li {
                 float: left;
 
+                > .text.underlined {
+                    text-decoration: underline;
+                }
+
                 > a {
                     padding: 0px 15px;
                     height: @header-height - 1;
@@ -89,10 +93,6 @@
                     color: @attendize-base-color;
                     text-shadow: none;
 
-                    &:hover,
-                    &:focus {
-                        font-weight: bold;
-                    }
 
                     &:active,
                     &.active {
@@ -120,6 +120,7 @@
                             font-weight: 600;
                             padding-left: 5px;
                         }
+
                         > .icon {
                             display: table-cell;
                             vertical-align: middle;
@@ -243,7 +244,8 @@
                 left: 0px;
 
                 > a {
-                    color: @gray;
+                    color: @gray-dark;
+                    text-transform: uppercase;
 
                     &:hover {
                         color: @white;

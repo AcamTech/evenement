@@ -52,6 +52,7 @@ return array (
   'yes' => 'Yes',
   'no' => 'No',
   'ISED' => 'ISED',
+  'menu' => 'menu',
   /*
    * Lines below will turn obsolete in localization helper, it is declared in app/Helpers/macros.
    * If you run it, it will break file input fields.

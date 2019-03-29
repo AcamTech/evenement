@@ -16,7 +16,7 @@
     <li class="navbar-main">
         <a href="javascript:void(0);" class="toggleSidebar" title="Show sidebar">
             <span class="toggleMenuIcon">
-                <span class="icon ico-menu"></span>
+                @lang('basic.menu')&nbsp;<span class="icon ico-arrow-right22"></span>
             </span>
         </a>
     </li>
