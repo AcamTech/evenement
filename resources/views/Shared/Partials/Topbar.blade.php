@@ -3,7 +3,7 @@
     <div class="navbar-header">
         <a class="navbar-brand" href="{{route('showUserHome')}}">
             <img
-                style="width: auto; height: 34px; margin-left: 15px;"
+                style="width: 362px; height: 34px; margin-left: 15px;"
                 class="logo"
                 alt="ISED Event Manager"
                 src="{{asset('assets/images/sig-blk-en.svg')}}"
