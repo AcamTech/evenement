@@ -32,22 +32,26 @@
 <!--Main Content-->
 <section id="main" role="main">
     <div class="container-fluid">
-        <div class="page-title">
-            <h1 class="title">@yield('page_title')</h1>
-        </div>
-    @if(array_key_exists('page_header', View::getSections()))
-        <!--  header -->
+
+        @if(View::hasSection('page_title'))
+            <div class="page-title">
+                <h1 class="title">@yield('page_title')</h1>
+            </div>
+        @endif
+
+        @if(array_key_exists('page_header', View::getSections()))
+            <!--  header -->
             <div class="page-header page-header-block row">
                 <div class="row">
                     @yield('page_header')
                 </div>
             </div>
             <!--/  header -->
-    @endif
+        @endif
 
-    <!--Content-->
-    @yield('content')
-    <!--/Content-->
+        <!--Content-->
+        @yield('content')
+        <!--/Content-->
     </div>
 
     <!--To The Top-->
