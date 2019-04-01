@@ -1,5 +1,20 @@
 <div class="landscape">
     <div class="container footer-nav">
+        <div class="row">
+
+
+            <div class="col-sm-4"><a href="/en/contact.html">Contact us</a></div>
+            <div class="col-sm-4"><a href="/en/government/dept.html">Departments and agencies</a></div>
+            <div class="col-sm-4"><a href="/en/government/publicservice.html">Public service and military</a></div>
+            <div class="col-sm-4"><a href="/en/news.html">News</a></div>
+            <div class="col-sm-4"><a href="/en/government/system/laws.html">Treaties, laws and regulations</a></div>
+            <div class="col-sm-4"><a href="/en/transparency/reporting.html">Government-wide reporting</a></div>
+            <div class="col-sm-4"><a href="http://pm.gc.ca/eng">Prime Minister</a></div>
+            <div class="col-sm-4"><a href="/en/government/system.html">How government works</a></div>
+            <div class="col-sm-4"><a href="http://open.canada.ca/en/">Open government</a></div>
+
+
+        </div>
     </div>
 </div>
 <div class="brand">
