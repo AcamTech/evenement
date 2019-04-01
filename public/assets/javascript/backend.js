@@ -7911,7 +7911,7 @@ $.cf = {
 			{
 				$(document).on("click.DateTimePicker", function(e)
 				{
-					oDTP._hidePicker("");
+					//oDTP._hidePicker("");
 				});
 			}
 		
