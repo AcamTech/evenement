@@ -16,15 +16,36 @@
 
 .brand {
   background: #fff;
+  position: relative;
+  max-width: 1170px;
+  margin:auto;
 
   .brand-nav {
     padding-top: 2em;
     padding-bottom: 2em;
-  }
+    li:not(:first-child){
+      &:before{
+        content: "\2022";
 
+        margin-right: .7em;
+      }
+    }
+  }
   .brand-icon object {
     height: 40px;
     margin: 20px 0 10px;
     width: auto;
+    position: absolute;
+    right: 0;
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  body.with-sidebar .landscape,
+  body.with-sidebar .brand {
+    margin-left: 220px;
+    .footer-nav{
+      margin-left: 0px;
+    }
   }
 }
