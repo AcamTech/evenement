@@ -44,10 +44,6 @@
                 color:    #ccc !important;
             }
 
-            input, select {
-                color: #999 !important;
-            }
-
         </style>
         @if ($event->bg_type == 'color' || Input::get('bg_color_preview'))
             <style>body {background-color: {{(Input::get('bg_color_preview') ? '#'.Input::get('bg_color_preview') : $event->bg_color)}} !important; }</style>
