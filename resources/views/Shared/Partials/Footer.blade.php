@@ -35,11 +35,22 @@
         <div class="row">
             <div class="col-sm-10 brand-nav">
                 <ul class="list-inline">
-                    <li><a href="https://www.canada.ca/en/social.html">Social media</a></li>
-                    <li><a href="https://www.canada.ca/en/mobile.html">Mobile applications</a></li>
-                    <li><a href="https://www.canada.ca/en/government/about.html">About Canada.ca</a></li>
-                    <li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
-                    <li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
+
+
+                    @if ( Config::get('app.locale') == 'fr' )
+                        <li><a href="https://www.canada.ca/fr/sociaux.html">Médias sociaux</a></li>
+                        <li><a href="https://www.canada.ca/fr/mobile.html">Applications mobiles</a></li>
+                        <li><a href="https://www.canada.ca/fr/gouvernement/a-propos.html">À propos de Canada.ca</a></li>
+                        <li><a href="https://www.canada.ca/fr/transparence/avis.html">Avis</a></li>
+                        <li><a href="https://www.canada.ca/fr/transparence/confidentialite.html">Confidentialité</a></li>
+                    @else
+
+                        <li><a href="https://www.canada.ca/en/social.html">Social media</a></li>
+                        <li><a href="https://www.canada.ca/en/mobile.html">Mobile applications</a></li>
+                        <li><a href="https://www.canada.ca/en/government/about.html">About Canada.ca</a></li>
+                        <li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
+                        <li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
+                    @endif
                 </ul>
             </div>
             <div class="col-sm-2 brand-icon">
