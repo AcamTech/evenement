@@ -46,4 +46,5 @@ return array (
   'venue_name_placeholder' => 'Ex. : The Lapin Agile',
   'vis_hide' => 'Cacher l\'événement du public.',
   'vis_public' => 'Rendre l\'événement visible au public.',
+    'event_category' => 'catégorie d\'événement'
 );

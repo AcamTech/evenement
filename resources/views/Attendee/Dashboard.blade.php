@@ -150,9 +150,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
-                            {!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
-                            <a href="{{route('showUserHome')}}" class="btn btn-link">{{trans('Dashboard.reset')}}</a>
+                        <div class="col-sm-3 col-sm-offset-6 col-xs-6 ">
+                            <a href="{{route('showUserHome')}}" class="btn btn-link btn-block">{{trans('Dashboard.reset')}}</a>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            {!! Form::submit(trans('Dashboard.submit'), ['class' => 'btn btn-success btn-block']) !!}
                         </div>
                     </div>
                 </form>

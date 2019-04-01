@@ -23,4 +23,12 @@ return array (
     'ticket_sales_volume' => 'Volume des ventes de billet',
     'tickets_sold' => 'Billets vendus',
     'website_embed_code' => 'Code d\'intégration pour site web',
+    'distance_from' => 'Distance de l\'adresse',
+    'browse_events' => 'Trouver des événements',
+    'location' => 'emplacement',
+    'keyword' => 'Mot-clé',
+    'reset' => 'Réinitialiser',
+    'submit' => 'Recherche',
+    'search_form' => 'Formulaire de recherche',
+    'search_results' => 'Résultats de la recherche'
 );
