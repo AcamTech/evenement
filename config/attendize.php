@@ -22,9 +22,9 @@ return [
     'outgoing_email_name'    => env('MAIL_FROM_NAME'),
     'incoming_email'         => env('MAIL_FROM_ADDRESS'),
 
-    'app_name'               => 'Attendize Event Ticketing',
+    'app_name'               => 'ISED Events',
     'event_default_bg_color' => '#B23333',
-    'event_default_bg_image' => 'assets/images/public/EventPage/backgrounds/5.jpg',
+    'event_default_bg_image' => NULL, //'assets/images/public/EventPage/backgrounds/5.jpg',
 
     'event_images_path'      => 'user_content/event_images',
     'organiser_images_path'  => 'user_content/organiser_images',
