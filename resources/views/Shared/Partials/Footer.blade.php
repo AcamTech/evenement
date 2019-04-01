@@ -1,24 +1,37 @@
 <div class="landscape">
     <div class="container footer-nav">
         <div class="row">
+            @if ( Config::get('app.locale') == 'fr' )
 
+                <div class="col-sm-4"><a href="https://www.canada.ca/fr/agence-revenu/organisation/coordonnees.html">@lang('basic.Contact us')</a></div>
+                <div class="col-sm-4"><a href="https://www.canada.ca/fr/gouvernement/min.html">@lang('basic.Departments and agencies')</a></div>
+                <div class="col-sm-4"><a href="https://www.canada.ca/fr/gouvernement/fonctionpublique.html">@lang('basic.Public service and military')</a></div>
+                <div class="col-sm-4"><a href="https://www.canada.ca/fr/nouvelles.html">@lang('basic.News')</a></div>
+                <div class="col-sm-4"><a href="https://www.canada.ca/fr/gouvernement/systeme/lois.html">@lang('basic.Treaties, laws and regulations')</a></div>
+                <div class="col-sm-4"><a href="https://www.canada.ca/fr/transparence/rapports.html">@lang('basic.Government-wide reporting')</a></div>
+                <div class="col-sm-4"><a href="http://pm.gc.ca/fra">@lang('basic.Prime Minister')</a></div>
+                <div class="col-sm-4"><a href="https://www.canada.ca/fr/gouvernement/systeme.html">@lang('basic.How government works')</a></div>
+                <div class="col-sm-4"><a href="http://ouvert.canada.ca/">@lang('basic.Open government')</a></div>
 
-            <div class="col-sm-4"><a href="/en/contact.html">Contact us</a></div>
-            <div class="col-sm-4"><a href="/en/government/dept.html">Departments and agencies</a></div>
-            <div class="col-sm-4"><a href="/en/government/publicservice.html">Public service and military</a></div>
-            <div class="col-sm-4"><a href="/en/news.html">News</a></div>
-            <div class="col-sm-4"><a href="/en/government/system/laws.html">Treaties, laws and regulations</a></div>
-            <div class="col-sm-4"><a href="/en/transparency/reporting.html">Government-wide reporting</a></div>
-            <div class="col-sm-4"><a href="http://pm.gc.ca/eng">Prime Minister</a></div>
-            <div class="col-sm-4"><a href="/en/government/system.html">How government works</a></div>
-            <div class="col-sm-4"><a href="http://open.canada.ca/en/">Open government</a></div>
+            @else
 
+                <div class="col-sm-4"><a href="https://canada.ca/en/contact.html">@lang('basic.Contact us')</a></div>
+                <div class="col-sm-4"><a href="https://canada.ca/en/government/dept.html">@lang('basic.Departments and agencies')</a></div>
+                <div class="col-sm-4"><a href="https://canada.ca/en/government/publicservice.html">@lang('basic.Public service and military')</a></div>
+                <div class="col-sm-4"><a href="https://canada.ca/en/news.html">@lang('basic.News')</a></div>
+                <div class="col-sm-4"><a href="https://canada.ca/en/government/system/laws.html">@lang('basic.Treaties, laws and regulations')</a></div>
+                <div class="col-sm-4"><a href="https://canada.ca/en/transparency/reporting.html">@lang('basic.Government-wide reporting')</a></div>
+                <div class="col-sm-4"><a href="http://pm.gc.ca/eng">@lang('basic.Prime Minister')</a></div>
+                <div class="col-sm-4"><a href="https://canada.ca/en/government/system.html">@lang('basic.How government works')</a></div>
+                <div class="col-sm-4"><a href="http://open.canada.ca/en/">@lang('basic.Open government')</a></div>
+
+           @endif
 
         </div>
     </div>
 </div>
 <div class="brand">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-sm-10 brand-nav">
                 <ul class="list-inline">

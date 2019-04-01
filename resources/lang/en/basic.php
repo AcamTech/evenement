@@ -53,6 +53,17 @@ return array (
   'no' => 'No',
   'ISED' => 'ISED',
   'menu' => 'menu',
+
+    'Contact us' => 'Contact us',
+    'Departments and agencies' => 'Departments and agencies',
+    'Public service and military' => 'Public service and military',
+    'News' => 'News',
+    'Treaties, laws and regulations' => 'Treaties, laws and regulations',
+    'Government-wide reporting' => 'Government-wide reporting',
+    'Prime Minister' => 'Prime Minister',
+    'How government works' => 'How government works',
+    'Open government' => 'Open government',
+
   /*
    * Lines below will turn obsolete in localization helper, it is declared in app/Helpers/macros.
    * If you run it, it will break file input fields.

@@ -49,6 +49,18 @@ return array (
   'yes' => 'Oui',
   'no' => 'Non',
     'ISED' => 'ISDE',
+
+
+    'Contact us' => 'Contactez-nous',
+    'Departments and agencies' => 'Ministères et organismes',
+    'Public service and military' => 'Fonction publique et force militaire',
+    'News' => 'Nouvelles',
+    'Treaties, laws and regulations' => 'Traités, lois et règlements',
+    'Government-wide reporting' => 'Rapports à l\'échelle du gouvernement',
+    'Prime Minister' => 'Premier ministre',
+    'How government works' => 'Comment le gouvernement fonctionne',
+    'Open government' => 'Gouvernement ouvert',
+
     /*
      * Lines below will turn obsolete in localization helper, it is declared in app/Helpers/macros.
      * If you run it, it will break file input fields.
