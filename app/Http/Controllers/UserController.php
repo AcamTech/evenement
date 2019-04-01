@@ -37,7 +37,7 @@ class UserController extends Controller
         }
 
         if (!($isAdmin || $isAttendee)) {
-            return response('User is not administrator or attendee.', 401);
+            return response('User is not an administrator nor an attendee. This should never happen.', 401);
         }
 
         if (!$isAttendee) {
