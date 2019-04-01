@@ -66,6 +66,8 @@
 
             {{-- Push for sticky footer--}}
             @stack('footer')
+
+            @include('Shared.Partials.Footer')
         </div>
 
         {{-- Sticky Footer--}}
@@ -82,7 +84,6 @@
         <script>if($('#countdown')) {setCountdown($('#countdown'), {{$secondsToExpire}});}</script>
         @endif
 
-        @include('Shared.Partials.Footer')
         @include('Shared.Partials.GlobalFooterJS')
     </body>
 </html>
