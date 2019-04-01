@@ -1,7 +1,7 @@
 <header id="header" class="navbar">
 
     <div class="navbar-header">
-        <a class="navbar-brand" href="{{route('showUserHome')}}">
+        <div class="navbar-brand">
             <p class="frontend-logo">
                 <img
                     style="width: 372px; height: 34px; margin-left: 15px;"
@@ -18,7 +18,7 @@
                     src="{{asset('assets/images/logo-light.png')}}"
                 />
             </p>
-        </a>
+        </div>
     </div>
 
     <div class="navbar-toolbar clearfix">
