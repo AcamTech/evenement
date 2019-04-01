@@ -55,7 +55,7 @@
     // Navbar toolbar
     // -----------------------------------
     > .navbar-toolbar {
-        background-color: transparent;
+        background-color: @white;
         //border-bottom: 1px solid darken(@maincontent-base-color, 3%);
         min-height: @header-height;
 
@@ -427,5 +427,27 @@
             -webkit-box-shadow: 0px 3px 2px -3px rgba(0, 0, 0, 0.08);
             box-shadow: 0px 3px 2px -3px rgba(0, 0, 0, 0.08);
         }
+    }
+}
+
+.no-sidebar {
+    .navbar-brand .application-logo {
+        display: none;
+    }
+
+    #header.navbar {
+        > .navbar-header > .navbar-brand {
+            width: 372px;
+        }
+
+        > .navbar-toolbar {
+            margin-left: 382px;
+        }
+    }
+}
+
+.with-sidebar {
+    .navbar-brand .frontend-logo {
+        display: none;
     }
 }
