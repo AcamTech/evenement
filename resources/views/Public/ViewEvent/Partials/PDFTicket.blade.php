@@ -88,6 +88,7 @@
                             {{$order->order_reference}}
                                 <h4>@lang("Ticket.attendee_ref")</h4>
                             {{$attendee->reference}}
+                            <!--
                                 <h4>@lang("Ticket.price")</h4>
 								@php
 	                            	// Calculating grand total including tax
@@ -98,6 +99,7 @@
 	                            {{money($grand_total, $order->event->currency)}} @if ($attendee->ticket->total_booking_fee) (inc. {{money($attendee->ticket->total_booking_fee, $order->event->currency)}} @lang("Public_ViewEvent.inc_fees")) @endif @if ($event->organiser->tax_name) (inc. {{money($tax_amt, $order->event->currency)}} {{$event->organiser->tax_name}})
 	                            <br><br>{{$event->organiser->tax_name}} ID: {{ $event->organiser->tax_id }}
                                 @endif
+                            -->
                             </div>
                         </div>
                         <div class="barcode">
