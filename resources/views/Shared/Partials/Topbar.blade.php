@@ -2,22 +2,26 @@
 
     <div class="navbar-header">
         <div class="navbar-brand">
-            <p class="frontend-logo">
-                <img
-                    style="width: 372px; height: 34px; margin-left: 15px;"
-                    class="logo"
-                    alt="ISED Event Manager"
-                    src="{{asset('assets/images/sig-blk-en.svg')}}"
-                />
-            </p>
-            <p class="application-logo">
-                <img
-                    style="width: 150px;"
-                    class="logo"
-                    alt="ISED Event Manager"
-                    src="{{asset('assets/images/logo-light.png')}}"
-                />
-            </p>
+                <p class="frontend-logo">
+                    <a href="{{URL::to('/')}}">
+                        <img
+                            style="width: 372px; height: 34px; margin-left: 15px;"
+                            class="logo"
+                            alt="ISED Event Manager"
+                            src="{{asset('assets/images/sig-blk-en.svg')}}"
+                        />
+                    </a>
+                </p>
+                <p class="application-logo">
+                    <a href="{{URL::to('/')}}">
+                        <img
+                            style="width: 150px;"
+                            class="logo"
+                            alt="ISED Event Manager"
+                            src="{{asset('assets/images/logo-light.png')}}"
+                        />
+                    </a>
+                </p>
         </div>
     </div>
 
