@@ -43,9 +43,9 @@
         <ul class="nav navbar-nav navbar-right">
             <li class="">
                 @if(Lang::locale() === 'en')
-                    <a class='text underlined' href="/fr/{{Request::path()}}">Français</a>
+                    <a class='text underlined' href="{{URL::to('/fr/')}}{{Request::path()}}">Français</a>
                 @elseif(Lang::locale() === 'fr')
-                    <a class='text underlined' href="/{{sprintf('en/%s', substr(Request::path(), strlen('fr/')))}}">English</a>
+                    <a class='text underlined' href="{{URL::to('/')}}{{sprintf('en/%s', substr(Request::path(), strlen('fr/')))}}">English</a>
                 @endif
             </li>
         </ul>
