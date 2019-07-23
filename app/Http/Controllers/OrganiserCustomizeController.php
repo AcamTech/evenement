@@ -139,7 +139,7 @@ class OrganiserCustomizeController extends MyBaseController
         return response()->json([
             'status' => 'success',
             'message' => trans("Controllers.refreshing"),
-            'redirectUrl' => route('/'),
+            'redirectUrl' => route('showUserHome'),
         ]);
     }
 }
