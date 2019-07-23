@@ -173,7 +173,7 @@ class ManageAccountController extends MyBaseController
         $user = User::findOrFail(Input::get('account_id'));
 
         // don't delete yourself!!
-        if (Auth::user()->account_id == $user->account_id){
+        if (Auth::user()->account_id == $user->id){
 
             return response()->json([
                 'status'   => 'error',
@@ -182,7 +182,7 @@ class ManageAccountController extends MyBaseController
 
         }
 
-        User::destroy($user->account_id);
+        User::destroy($user->id);
 
         return response()->json([
             'status'  => 'success',
