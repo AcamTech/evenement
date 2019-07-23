@@ -163,18 +163,17 @@ class ManageAccountController extends MyBaseController
      * @return \Illuminate\Http\JsonResponse
      */
     public function postDeleteUser(){
+        if (empty(Input::get('account_id'))){
 
-        $account = Account::find(Input::get('account_id'));
-
-        if (!$account->validate(Input::all())) {
             return response()->json([
                 'status'   => 'error',
-                'messages' => $account->errors(),
+                'messages' => "You must specify a valid account ID"
             ]);
         }
+        $account = Account::findOrFail(Input::get('account_id'));
 
         // don't delete yourself!!
-        if (Auth::user()->account_id == Input::get('account_id')){
+        if (Auth::user()->account_id == $account->account_id){
 
             return response()->json([
                 'status'   => 'error',
@@ -183,7 +182,7 @@ class ManageAccountController extends MyBaseController
 
         }
 
-        Account::destroy(Input::get('account_id'));
+        Account::destroy($account->account_id);
 
         return response()->json([
             'status'  => 'success',
