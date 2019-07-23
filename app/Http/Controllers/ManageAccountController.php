@@ -170,10 +170,10 @@ class ManageAccountController extends MyBaseController
                 'messages' => "You must specify a valid account ID"
             ]);
         }
-        $account = Account::findOrFail(Input::get('account_id'));
+        $user = User::findOrFail(Input::get('account_id'));
 
         // don't delete yourself!!
-        if (Auth::user()->account_id == $account->account_id){
+        if (Auth::user()->account_id == $user->account_id){
 
             return response()->json([
                 'status'   => 'error',
@@ -182,7 +182,7 @@ class ManageAccountController extends MyBaseController
 
         }
 
-        Account::destroy($account->account_id);
+        User::destroy($user->account_id);
 
         return response()->json([
             'status'  => 'success',
