@@ -195,7 +195,7 @@
 
                         <a class="deleteThis"
                            style="cursor:pointer"
-                           data-route={{ route('postDeleteOrganizer',  ['organiser_id' => $organiser->id]) }}>
+                           data-route={{ route('postDeleteOrganiser',  ['organiser_id' => $organiser->id]) }}>
                             Delete Organizer
                         </a>
                     </div>

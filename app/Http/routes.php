@@ -348,7 +348,7 @@ Route::group(
                     'as'   => 'postEditOrganiser',
                     'uses' => 'OrganiserCustomizeController@postEditOrganiser',
                 ]);
-                Route::post('{organiser_id}/customize', [
+                Route::post('{organiser_id}/delete', [
                     'as'   => 'postDeleteOrganiser',
                     'uses' => 'OrganiserCustomizeController@postDeleteOrganiser',
                 ]);
