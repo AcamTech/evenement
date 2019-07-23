@@ -158,6 +158,39 @@ class ManageAccountController extends MyBaseController
     }
 
     /**
+     * Delete a user from the application
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function postDeleteUser(){
+
+        $account = Account::find(Input::get('account_id'));
+
+        if (!$account->validate(Input::all())) {
+            return response()->json([
+                'status'   => 'error',
+                'messages' => $account->errors(),
+            ]);
+        }
+
+        // don't delete yourself!!
+        if (Auth::user()->account_id == Input::get('account_id')){
+
+            return response()->json([
+                'status'   => 'error',
+                'messages' => "You are not allowed to delete yourself.",
+            ]);
+
+        }
+
+        Account::destroy(Input::get('account_id'));
+
+        return response()->json([
+            'status'  => 'success',
+            'message' => trans("Controllers.success_name_has_been_deleted", ["name"=>$user->email]),
+        ]);
+    }
+    /**
      * Invite a user to the application
      *
      * @return \Illuminate\Http\JsonResponse
