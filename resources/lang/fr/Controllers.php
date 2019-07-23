@@ -116,4 +116,5 @@ return array (
     'tickets_for_event' => 'Vos billets pour l\'événement :event.',
     'whoops' => 'Zut! On dirait qu\'un truc ne s\'est pas bien passé, merci de réessayer.',
     'your_password_reset_link' => 'Le lien de renvoi de votre mot de passe',
+    'success_name_has_been_deleted' => "Le compte a été supprimé",
 );
