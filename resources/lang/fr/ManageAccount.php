@@ -49,4 +49,5 @@ return array (
   'version_up_to_date' => 'Votre version d\'Attendize (<b>:installed</b>) est à jour !',
     'account_payment' => 'Compte / Paiement',
     'event_attendees' => 'Participants de l\'événément',
+    'delete_user_submit' => 'Supprimer le compte',
 );

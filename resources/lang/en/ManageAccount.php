@@ -49,4 +49,5 @@ return array (
   'version_up_to_date' => 'Your Attendize version (<b>:installed</b>) is up to date!',
     'account_payment' => 'Account / Payment',
     'event_attendees' => 'Event attendees',
+    'delete_user_submit' => 'Delete Account',
 );
