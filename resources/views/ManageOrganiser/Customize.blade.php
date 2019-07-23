@@ -187,6 +187,18 @@
                         {!! Form::submit(trans("Organiser.save_organiser"), ['class'=>"btn btn-success"]) !!}
                     </div>
                     {!! Form::close() !!}
+                    <div class="modal-footer">
+
+                        <div class="alert alert-danger">
+                            <strong>WARNING!</strong> Deleting organizers is a permanent action!
+                        </div>
+
+                        <a class="deleteThis"
+                           style="cursor:pointer"
+                           data-route={{ route('postDeleteOrganizer',  ['organiser_id' => $organiser->id]) }}>
+                            Delete Organizer
+                        </a>
+                    </div>
                 </div>
                 <div class="tab-pane scale_iframe" id="OrganiserPageDesign">
                     {!! Form::model($organiser, array('url' => route('postEditOrganiserPageDesign', ['event_id' => $organiser->id]), 'class' => 'ajax ')) !!}

@@ -284,6 +284,11 @@ Route::group(
                     'uses' => 'ManageAccountController@postInviteUser',
                 ]);
 
+                Route::post('delete_user', [
+                    'as'   => 'postDeleteUser',
+                    'uses' => 'ManageAccountController@postDeleteUser',
+                ]);
+
             });
 
             Route::get('select_organiser', [
@@ -342,6 +347,10 @@ Route::group(
                 Route::post('{organiser_id}/customize', [
                     'as'   => 'postEditOrganiser',
                     'uses' => 'OrganiserCustomizeController@postEditOrganiser',
+                ]);
+                Route::post('{organiser_id}/customize', [
+                    'as'   => 'postDeleteOrganiser',
+                    'uses' => 'OrganiserCustomizeController@postDeleteOrganiser',
                 ]);
 
                 Route::get('create', [

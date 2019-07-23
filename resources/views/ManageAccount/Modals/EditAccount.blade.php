@@ -99,7 +99,6 @@
 
                             </div>
                             <div class="tab-pane" id="users_account">
-                                {!! Form::open(array('url' => route('postInviteUser'), 'class' => 'ajax ')) !!}
 
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
@@ -115,12 +114,19 @@
                                                 </td>
                                                 <td>
                                                     {!! $user->is_parent ? '<span class="label label-info">'.trans("ManageAccount.accout_owner").'</span>' : '' !!}
+
+                                                    {!! Form::open(array('url' => route('postDeleteUser'), 'class' => 'ajax ')) !!}
+                                                    {!! Form::hidden('account_id', $user->id) !!}
+                                                    {!!Form::submit(trans("ManageAccount.delete_user_submit"), ['class' => 'btn btn-primary'])!!}
+                                                    {!! Form::close() !!}
                                                 </td>
 
                                             </tr>
                                         @endforeach
                                         <tr>
                                             <td colspan="3">
+
+                                                {!! Form::open(array('url' => route('postInviteUser'), 'class' => 'ajax ')) !!}
                                                 <div class="input-group">
                                                     {!! Form::text('email', '',  ['class' => 'form-control', 'placeholder' => trans("ManageAccount.email_address_placeholder")]) !!}
                                                     <span class="input-group-btn">
@@ -129,7 +135,9 @@
                                                 </div>
                                                 <span class="help-block">
                                                     @lang("ManageAccount.add_user_help_block")
-                                                </span>
+						                        </span>
+
+                                                {!! Form::close() !!}
                                             </td>
 
                                         </tr>
@@ -137,7 +145,6 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                {!! Form::close() !!}
                             </div>
                             <div class="tab-pane " id="about">
                                 <h4>

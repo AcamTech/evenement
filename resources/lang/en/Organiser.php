@@ -73,4 +73,5 @@ return array (
   'select_organiser' => 'Select Organiser',
   'text_color' => 'Text Color',
   'tickets_sold' => 'Tickets Sold',
+  'delete_message' => 'Successfully Removed Organiser',
 );

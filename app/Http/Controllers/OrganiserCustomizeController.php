@@ -120,4 +120,26 @@ class OrganiserCustomizeController extends MyBaseController
             'message' => trans("Controllers.organiser_design_successfully_updated"),
         ]);
     }
+
+    /**
+     * Deletes organiser!
+     *
+     * @param Request $request
+     * @param $organiser_id
+     * @return mixed
+     */
+    public function postDeleteOrganiser(Request $request, $organiser_id)
+    {
+        $organiser = Organiser::scope()->findOrFail($organiser_id);
+
+        Organiser::destroy($organiser->id);
+
+        session()->flash('message', trans('Organiser.delete_message'));
+
+        return response()->json([
+            'status' => 'success',
+            'message' => trans("Controllers.refreshing"),
+            'redirectUrl' => route('/'),
+        ]);
+    }
 }
