@@ -115,10 +115,12 @@
                                                 <td>
                                                     {!! $user->is_parent ? '<span class="label label-info">'.trans("ManageAccount.accout_owner").'</span>' : '' !!}
 
-                                                    {!! Form::open(array('url' => route('postDeleteUser'), 'class' => 'ajax ')) !!}
-                                                    {!! Form::hidden('account_id', $user->id) !!}
-                                                    {!!Form::submit(trans("ManageAccount.delete_user_submit"), ['class' => 'btn btn-primary'])!!}
-                                                    {!! Form::close() !!}
+                                                    @if($user->id > Auth::user()->id)
+                                                        {!! Form::open(array('url' => route('postDeleteUser'), 'class' => 'ajax ')) !!}
+                                                        {!! Form::hidden('account_id', $user->id) !!}
+                                                        {!!Form::submit(trans("ManageAccount.delete_user_submit"), ['class' => 'btn btn-primary'])!!}
+                                                        {!! Form::close() !!}
+                                                    @endif
                                                 </td>
 
                                             </tr>
