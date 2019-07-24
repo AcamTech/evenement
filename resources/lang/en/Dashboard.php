@@ -30,7 +30,7 @@ return array (
     'search_results' => 'Search Results',
     'location' => 'Location',
     'reset' => 'Reset',
-    'Submit' => 'Search',
+    'submit' => 'Search',
     'home' => 'Home',
     'search_events' => 'Search Events',
     'my_events' => 'My Events',
